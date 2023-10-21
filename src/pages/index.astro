@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { fetchData } from "../data/fetch";
 import { allFeeds } from "../data/parser";
 
-const data = (await fetchData()) as { id: string; url: string }[];
+const res = await fetch("http://localhost:3000/api/fetchFeeds", {
+    method: "GET",
+});
+const { data } = await res.json();
 const feeds = await allFeeds(data);
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Developer Blogs">
     <main>
         {feeds.map((feed) => feed.title)}
     </main>

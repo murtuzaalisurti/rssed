@@ -1,0 +1,1 @@
+select * from freed.feed_list where id = $1;
