@@ -1,15 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { allFeeds } from "../data/parser.mts";
-import data from "../data/list.json" assert { type: "json" };
+import { fetchData } from "../data/fetch";
+import { allFeeds } from "../data/parser";
 
+const data = (await fetchData()) as { id: string; url: string }[];
 const feeds = await allFeeds(data);
 ---
 
 <Layout title="Welcome to Astro.">
     <main>
-        {
-            feeds.map(feed => feed.title)
-        }
+        {feeds.map((feed) => feed.title)}
     </main>
 </Layout>

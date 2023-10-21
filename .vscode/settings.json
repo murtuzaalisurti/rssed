@@ -1,5 +1,17 @@
 {
     "files.associations": {
         "*.mdx": "markdown"
-    }
+    },
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "freed",
+            "connectString": "postgres://murtuzaalisurti:vMHu69cNEyUR@ep-steep-cloud-51254016.eu-central-1.aws.neon.tech/neondb?sslmode=verify"
+        }
+    ]
 }
