@@ -22,3 +22,4 @@ pnpm-debug.log*
 
 freed.session.sql
 *.vercel
+.vercel
