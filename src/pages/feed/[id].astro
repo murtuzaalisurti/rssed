@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { allFeeds } from "../../data/parser";
+import { getAPIBaseURL } from "../../lib/utils";
+
+const API_BASE_URL = getAPIBaseURL(Astro.request.url);
+const feedId = Astro.params.id;
+
+const res = await fetch(`${API_BASE_URL}/api/fetchFeeds?id=${feedId}`, {
+    method: "GET",
+});
+
+const { data, status } = await res.json();
+
+if (status !== 200) {
+    return new Response(null, {
+        status: 404,
+        statusText: "Not found",
+    });
+}
+
+const feed = await allFeeds(data);
+---
+
+<Layout title="Feed">
+    <main>
+        {
+            feed.map(f => {
+                return f.items.map(item => {
+                    return <pre>{JSON.stringify(item.title, null, 4)}</pre>
+                }) 
+            })
+        }
+    </main>
+</Layout>

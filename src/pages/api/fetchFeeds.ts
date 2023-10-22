@@ -19,6 +19,7 @@ export const GET: APIRoute = async ({ request }) => {
         return new Response(
             JSON.stringify({
                 message: "Success",
+                status: 200,
                 method: request.method,
                 data: queryResult
             })

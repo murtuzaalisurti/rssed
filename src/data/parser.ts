@@ -7,7 +7,10 @@ export const ParseRSS = async (url: string) => {
 export const allFeeds = async (list: { id: string, url: string }[]) => {
     return Promise.all(
         list.map(async (site) => {
-            return await ParseRSS(site.url)
+            return {
+                ...await ParseRSS(site.url),
+                id: site.id
+            }
         })
     )
 }

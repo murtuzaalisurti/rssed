@@ -1,16 +1,31 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { allFeeds } from "../data/parser";
+import { getAPIBaseURL } from "../lib/utils";
+const API_BASE_URL = getAPIBaseURL(Astro.request.url)
 
-const res = await fetch("http://localhost:3000/api/fetchFeeds", {
+const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
     method: "GET",
 });
 const { data } = await res.json();
 const feeds = await allFeeds(data);
+// console.log(feeds)
 ---
 
 <Layout title="Developer Blogs">
     <main>
-        {feeds.map((feed) => feed.title)}
+        <!-- <div>
+            {feeds.map((feed) => {
+                return <pre>{JSON.stringify(feed, null, 4)}</pre>
+            })}
+        </div> -->
+
+        <div>
+            {feeds.map((feed) => {
+                return <div>
+                    <a href={`/feed/${feed.id}`}>{feed.link}</a>
+                </div>
+            })}
+        </div>
     </main>
 </Layout>
