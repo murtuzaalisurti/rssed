@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { allFeeds } from "../data/parser";
 import { getAPIBaseURL } from "../lib/utils";
-const API_BASE_URL = getAPIBaseURL(Astro.request.url)
+const API_BASE_URL = getAPIBaseURL(Astro.request.url);
 
 const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
     method: "GET",
@@ -11,20 +11,39 @@ const { data } = await res.json();
 const feeds = await allFeeds(data);
 ---
 
-<Layout title="Developer Blogs">
-    <main>
-        <!-- <div>
-            {feeds.map((feed) => {
-                return <pre>{JSON.stringify(feed, null, 4)}</pre>
-            })}
-        </div> -->
-
-        <div>
-            {feeds.map((feed) => {
-                return <div>
-                    <a href={`/feed/${feed.id}`}>{feed.link}</a>
-                </div>
-            })}
-        </div>
-    </main>
+<Layout title="Freed - A Collection of Developer RSS Feeds">
+    <div id="feed_list">
+        {
+            feeds.map((feed) => {
+                return (
+                    <div class="feed">
+                        <h2>
+                            <a href={`/feed/${feed.id}`}>{feed.title}</a>
+                        </h2>
+                        <p>{feed.link}</p>
+                        {
+                            feed.title === "Syntackle" ? <p>shameless promotion &#10085;</p> : <></>
+                        }
+                    </div>
+                );
+            })
+        }
+    </div>
 </Layout>
+
+<style>
+    #feed_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .feed {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem;
+        border: 0.3rem solid rgba(201, 125, 96, 0.3);
+        border-radius: 1rem;
+    }
+</style>

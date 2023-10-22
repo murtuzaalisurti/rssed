@@ -1,11 +1,12 @@
 ---
+import "@fontsource-variable/montserrat";
+import "@fontsource-variable/rubik";
+
 interface Props {
-        title: string;
+    title: string;
 }
 
-const {
-    title
-} = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -18,6 +19,90 @@ const {
         <title>{title}</title>
     </head>
     <body>
-        <slot />
+        <header>
+            <h1>
+                <a style={{textDecoration: "none"}} href="/">freed</a>
+            </h1>
+            <p>a collection of dev rss feeds</p>
+        </header>
+        <main>
+            <slot />
+        </main>
     </body>
 </html>
+
+<style is:global>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        --background-color: #262322;
+        --text-color: #f2e5d7;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family:
+            "Rubik Variable",
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Helvetica,
+            Arial,
+            sans-serif,
+            "Apple Color Emoji",
+            "Segoe UI Emoji",
+            "Segoe UI Symbol";
+    }
+
+    a {
+        font: inherit;
+        color: var(--text-color);
+    }
+
+    main,
+    header {
+        width: 90%;
+        max-width: 40rem;
+        padding: 2rem 0;
+    }
+
+    header {
+        padding: 2rem 0 1rem 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Montserrat Variable", sans-serif;
+        text-wrap: balance;
+    }
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+        display: block;
+        max-width: 100%;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        overflow-wrap: break-word;
+    }
+</style>

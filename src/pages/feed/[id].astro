@@ -23,13 +23,54 @@ const feed = await allFeeds(data);
 ---
 
 <Layout title="Feed">
-    <main>
+    <div id="feed_content">
+        <div>
+            <hr class="design_element" />
+            <h2>{feed[0].title}</h2>
+            <p>Posts</p>
+        </div>
         {
-            feed.map(f => {
-                return f.items.map(item => {
-                    return <pre>{JSON.stringify(item.title, null, 4)}</pre>
-                }) 
+            feed.map((f) => {
+                return f.items.map((item) => {
+                    return (
+                        <div class="post">
+                            <h3>
+                                <a href={item.link}>{item.title}</a>
+                            </h3>
+                            <p>
+                                {item.contentSnippet?.split(".")[0]}
+                                <a href={item.link}>[...]</a>
+                            </p>
+                        </div>
+                    );
+                });
             })
         }
-    </main>
+    </div>
 </Layout>
+
+<style>
+    .design_element {
+        width: 3rem;
+        background-color: rgba(201, 125, 96, 0.3);
+        height: 0.2rem;
+        outline: none;
+        border: none;
+        margin-bottom: 0.5rem;
+    }
+    #feed_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .post {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        border: 0.3rem solid rgba(201, 125, 96, 0.3);
+        border-radius: 1rem;
+    }
+</style>
