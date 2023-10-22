@@ -9,7 +9,6 @@ const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
 });
 const { data } = await res.json();
 const feeds = await allFeeds(data);
-// console.log(feeds)
 ---
 
 <Layout title="Developer Blogs">
