@@ -69,7 +69,8 @@ export const GET: APIRoute = async ({ request }) => {
         return new Response(
             JSON.stringify({
                 method: request.method,
-                message: "Someting went wrong"
+                message: "Someting went wrong",
+                error
             }),
             {
                 status: 500,
