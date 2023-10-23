@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro"
 import { connectDatabase } from "../../data/connect"
 import { SQL_QUERY_BASE_PATH } from "../../lib/constants"
+import path from "path"
 // import { PostgresError } from "postgres"
 
 export const GET: APIRoute = async ({ request }) => {
@@ -12,7 +13,7 @@ export const GET: APIRoute = async ({ request }) => {
     try {
         const queryResult = feedId 
             ? await client.file<[{ id: string, url: string }]>(`${SQL_QUERY_BASE_PATH}/${file}.sql`, [`${feedId}`]) 
-            : await client.file<[{ id: string, url: string }]>(`./data/sql/${file}.sql`);
+            : await client.file<[{ id: string, url: string }]>(`${path.join(process.cwd(), '/data/sql')}/${file}.sql`);
     
         await client.end();
         
