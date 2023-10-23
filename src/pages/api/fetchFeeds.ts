@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ request }) => {
     try {
         const queryResult = feedId 
             ? await client.file<[{ id: string, url: string }]>(`${SQL_QUERY_BASE_PATH}/${file}.sql`, [`${feedId}`]) 
-            : await client.file<[{ id: string, url: string }]>(`data/sql/${file}.sql`);
+            : await client.file<[{ id: string, url: string }]>(`./data/sql/${file}.sql`);
     
         await client.end();
         
