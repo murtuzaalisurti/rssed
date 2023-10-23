@@ -4,17 +4,22 @@ import { allFeeds } from "../data/parser";
 import { getAPIBaseURL } from "../lib/utils";
 const API_BASE_URL = getAPIBaseURL(Astro.request.url);
 
-const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
-    method: "GET",
-});
-const { data } = await res.json();
-const feeds = await allFeeds(data);
+let feeds;
+try {
+    const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
+        method: "GET",
+    });
+    const { data } = await res.json();
+    feeds = await allFeeds(data);
+} catch (error) {
+    console.log(error)
+}
 ---
 
 <Layout title="Freed - A Collection of Developer RSS Feeds">
     <div id="feed_list">
         {
-            feeds.map((feed) => {
+            feeds?.map((feed) => {
                 return (
                     <div class="feed">
                         <h2>
