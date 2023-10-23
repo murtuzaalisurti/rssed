@@ -1,1 +1,3 @@
-export const SQL_QUERY_BASE_PATH = './src/data/sql'
+import path from "path"
+
+export const SQL_QUERY_BASE_PATH = path.join(process.cwd(), 'src/data/sql')
