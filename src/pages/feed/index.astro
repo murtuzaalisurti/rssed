@@ -1,36 +1,32 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { allFeeds } from "../../data/parser";
-import { getAPIBaseURL } from "../../lib/utils";
+import { fetchFeeds } from "../../lib/api/fetchFeeds";
 
-const API_BASE_URL = getAPIBaseURL(Astro.request.url);
-const feedId = Astro.params.id;
-
-const res = await fetch(`${API_BASE_URL}/api/fetchFeeds?id=${feedId}`, {
-    method: "GET",
-});
-
-const { data, status } = await res.json();
-
-if (status !== 200) {
-    return new Response(null, {
-        status: 404,
-        statusText: "Not found",
+let feed;
+try {
+    const res = await fetchFeeds({
+        method: "GET",
+        url: Astro.request.url,
+        req: Astro.request,
     });
+    
+    const { data } = JSON.parse(res);
+    feed = await allFeeds(data);
+} catch (error) {
+    console.log(error)
 }
-
-const feed = await allFeeds(data);
 ---
 
 <Layout title="Feed">
     <div id="feed_content">
         <div>
             <hr class="design_element" />
-            <h2>{feed[0].title}</h2>
-            <p>Posts</p>
+            <h2>{feed ? feed[0].title : "Feed not found!"}</h2>
+            <p>{feed && "Posts"}</p>
         </div>
         {
-            feed.map((f) => {
+            feed?.map((f) => {
                 return f.items.map((item) => {
                     return (
                         <div class="post">

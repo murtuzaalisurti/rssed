@@ -1,16 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { allFeeds } from "../data/parser";
-import { getAPIBaseURL } from "../lib/utils";
-const API_BASE_URL = getAPIBaseURL(Astro.request.url);
+import { fetchFeeds } from '../lib/api/fetchFeeds'
 
 let feeds;
 try {
-    const res = await fetch(`${API_BASE_URL}/api/fetchFeeds`, {
+    const res = await fetchFeeds({
         method: "GET",
-    });
-    const { data } = await res.json();
-    feeds = await allFeeds(data);
+        url: Astro.request.url,
+        req: Astro.request
+    })
+    const { data } = JSON.parse(res)
+    feeds = await allFeeds(data)
 } catch (error) {
     console.log(error)
 }
@@ -19,11 +20,11 @@ try {
 <Layout title="Freed - A Collection of Developer RSS Feeds">
     <div id="feed_list">
         {
-            feeds?.map((feed) => {
+            feeds ? feeds?.map((feed) => {
                 return (
                     <div class="feed">
                         <h2>
-                            <a href={`/feed/${feed.id}`}>{feed.title}</a>
+                            <a href={`/feed/?id=${feed.id}`}>{feed.title}</a>
                         </h2>
                         <p>{feed.link}</p>
                         {
@@ -31,7 +32,9 @@ try {
                         }
                     </div>
                 );
-            })
+            }) : (
+                <p>No feeds found!</p>
+            )
         }
     </div>
 </Layout>
