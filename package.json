@@ -15,8 +15,10 @@
     "@astrojs/vercel": "^5.0.2",
     "@fontsource-variable/montserrat": "^5.0.16",
     "@fontsource-variable/rubik": "^5.0.19",
+    "@netlify/functions": "^2.3.0",
     "@types/node": "^20.8.7",
     "astro": "^3.3.2",
+    "node-fetch": "^3.3.2",
     "postgres": "^3.4.0",
     "rss-parser": "^3.13.0"
   }
