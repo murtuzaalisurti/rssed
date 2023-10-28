@@ -1,6 +1,5 @@
 import { connectDatabase } from "../../data/connect"
 import { SQL_QUERY_BASE_PATH } from "../../lib/constants"
-import { PostgresError } from "postgres"
 
 export const fetchFeeds = async (request: Record<string, any>) => {
     const client = connectDatabase()
@@ -26,22 +25,7 @@ export const fetchFeeds = async (request: Record<string, any>) => {
     } catch (error) {
         await client.end()
 
-        if(error instanceof PostgresError) {
-            throw Error (
-                JSON.stringify({
-                    method: request.method,
-                    code: error.code,
-                    cause: error.cause,
-                    message: error.message,
-                    hint: error.hint,
-                    where: error.where,
-                    query: error.query,
-                    status: 400,
-                })
-            )
-
-            
-        } else if(error instanceof Error) {
+        if(error instanceof Error) {
             throw Error (
                 JSON.stringify({
                     method: request.method,
