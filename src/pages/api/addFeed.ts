@@ -25,40 +25,49 @@ export const POST: APIRoute = async ({ request }) => {
 
     } catch (error) {
         await client.end()
-        if (error instanceof PostgresError) {
-            return new Response(
-                JSON.stringify({
-                    method: request.method,
-                    code: error.code,
-                    cause: error.cause,
-                    message: error.message,
-                    hint: error.hint,
-                    where: error.where,
-                    query: error.query
-                }),
-                {
-                    status: 409,
-                }
-            )
-        } else if (error instanceof Error) {
-            return new Response(
-                JSON.stringify({
-                    method: request.method,
-                    message: error.message
-                }),
-                {
-                    status: 409,
-                }
-            )
-        } else {
-            return new Response(
-                JSON.stringify({
-                    method: request.method,
-                    message: "Someting went wrong"
-                }), {
-                    status: 500
-                }
-            )
-        }
+        // if (error instanceof PostgresError) {
+        //     return new Response(
+        //         JSON.stringify({
+        //             method: request.method,
+        //             code: error.code,
+        //             cause: error.cause,
+        //             message: error.message,
+        //             hint: error.hint,
+        //             where: error.where,
+        //             query: error.query
+        //         }),
+        //         {
+        //             status: 409,
+        //         }
+        //     )
+        // } else if (error instanceof Error) {
+        //     return new Response(
+        //         JSON.stringify({
+        //             method: request.method,
+        //             message: error.message
+        //         }),
+        //         {
+        //             status: 409,
+        //         }
+        //     )
+        // } else {
+        //     return new Response(
+        //         JSON.stringify({
+        //             method: request.method,
+        //             message: "Someting went wrong"
+        //         }), {
+        //             status: 500
+        //         }
+        //     )
+        // }
+        return new Response(
+            JSON.stringify({
+                method: request.method,
+                message: "Someting went wrong",
+                error
+            }), {
+                status: 500
+            }
+        )
     }
 }
