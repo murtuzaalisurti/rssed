@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from "@astrojs/mdx";
-
-import netlify from "@astrojs/netlify/functions";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +9,7 @@ export default defineConfig({
     port: 3000
   },
   integrations: [mdx()],
-  adapter: netlify()
+  adapter: node({
+    mode: "standalone"
+  })
 });
