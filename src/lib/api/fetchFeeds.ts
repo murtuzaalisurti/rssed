@@ -3,8 +3,8 @@ import { SQL_QUERY_BASE_PATH } from "../../lib/constants"
 
 export const fetchFeeds = async (request: Record<string, any>) => {
     const client = connectDatabase()
-    const queryParams = new URLSearchParams(request.url.split("?")[1])
-    const feedId = queryParams.get('id');
+    const feedId = request.feedId;
+
     const file = feedId ? `getSingleFeed` : `getListOfFeeds`
 
     try {
