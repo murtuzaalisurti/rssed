@@ -6,7 +6,7 @@ const BUILD_HOOK = process.env.BUILD_HOOK as unknown as URL
 /**
  * ? every day at 00:00
  */
-export const handler = schedule('*/2 * * * *', async () => {
+export const handler = schedule('0 0 * * *', async () => {
     try {
         const res = await fetch(BUILD_HOOK, {
             method: "POST"
