@@ -18,29 +18,40 @@ try {
 }
 
 export async function getStaticPaths() {
-    let feed;
-    let feedList: Record<string, Record<string, any>>[] | null = null;
-    const res = await fetchFeeds({
-        method: "GET",
-        req: Astro.request,
-    });
+
+    try {
+        let feed;
+        let feedList: Record<string, Record<string, any>>[] | null = null;
+        const res = await fetchFeeds({
+            method: "GET",
+            req: Astro.request,
+        });
+        
+        const { data } = JSON.parse(res);
     
-    const { data } = JSON.parse(res);
-
-    feed = await allFeeds(data as {id: string, url: string}[]);
-    feedList = data.map((feed: {id: string, url: string}) => {
-        return {
-            params: {
-                id: feed.id
+        feed = await allFeeds(data as {id: string, url: string}[]);
+        feedList = data.map((feed: {id: string, url: string}) => {
+            return {
+                params: {
+                    id: feed.id
+                }
             }
-        }
-    })
+        })
+    
+        return feedList ? feedList : [{
+            params: {
+                id: "404"
+            }
+        }];
+    } catch (error) {
+        console.log(error)
 
-    return feedList ? feedList : [{
-        params: {
-            id: "404"
-        }
-    }];
+        return [{
+            params: {
+                id: "404"
+            }
+        }]
+    }
 }
 
 ---
