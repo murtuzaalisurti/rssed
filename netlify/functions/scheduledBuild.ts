@@ -11,7 +11,7 @@ export const handler = schedule('0 0 * * *', async () => {
         const res = await fetch(BUILD_HOOK, {
             method: "POST"
         })
-        // const data = await res.json()
+
         console.log(res)
         return {
             statusCode: 200
