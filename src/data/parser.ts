@@ -1,7 +1,9 @@
 import Parser from "rss-parser";
 
 export const ParseRSS = async (url: string) => {
-    return await new Parser().parseURL(url)
+    return await new Parser({
+        timeout: 120000
+    }).parseURL(url)
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
