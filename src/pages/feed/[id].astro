@@ -3,69 +3,68 @@ import Layout from "../../layouts/Layout.astro";
 import { allFeeds } from "../../data/parser";
 import { fetchFeeds } from "../../lib/api/fetchFeeds";
 
-let feed;
-try {
-    const res = await fetchFeeds({
-        method: "GET",
-        req: Astro.request,
-        feedId: Astro.params.id
-    });
-    
-    const { data } = JSON.parse(res);
-    feed = await allFeeds(data as {id: string, url: string}[]);
-} catch (error) {
-    console.log(error)
-}
-
 export async function getStaticPaths() {
-
     try {
-        let feed;
-        let feedList: Record<string, Record<string, any>>[] | null = null;
         const res = await fetchFeeds({
             method: "GET",
             req: Astro.request,
         });
-        
+
         const { data } = JSON.parse(res);
-    
-        feed = await allFeeds(data as {id: string, url: string}[]);
-        feedList = data.map((feed: {id: string, url: string}) => {
+
+        const feeds = await allFeeds(data as { id: string; url: string }[]);
+        const feedList: Record<string, Record<string, any>>[] = data.map((fl: { id: string; url: string }) => {
             return {
                 params: {
-                    id: feed.id
+                    id: fl.id,
+                },
+                props: {
+                    feeds: feeds.filter((f) => f.id === fl.id)
                 }
-            }
-        })
-    
-        return feedList ? feedList : [{
-            params: {
-                id: "404"
-            }
-        }];
-    } catch (error) {
-        console.log(error)
+            };
+        });
 
-        return [{
-            params: {
-                id: "404"
-            }
-        }]
+        return feedList
+            ? feedList
+            : [
+                  {
+                      params: {
+                          id: "404",
+                      },
+                      props: {
+                          feeds: null,
+                      },
+                  },
+              ];
+    } catch (error) {
+        console.log(error);
+
+        return [
+            {
+                params: {
+                    id: "404",
+                },
+                props: {
+                    feeds: null
+                }
+            },
+        ];
     }
 }
 
+const { feeds } = Astro.props;
 ---
 
 <Layout title="Feed">
     <div id="feed_content">
         <div>
             <hr class="design_element" />
-            <h2>{feed ? feed[0].title : "Feed not found!"}</h2>
-            <p>{feed && "Posts"}</p>
+            <h2>{feeds ? feeds[0].title : "feed not found!"}</h2>
+            <p>{feeds && "Posts"}</p>
         </div>
         {
-            feed?.map((f) => {
-                return f.items.map((item) => {
+            feeds?.map((f: any) => {
+                return f.items.map((item: any) => {
                     return (
                         <div class="post">
                             <h3>

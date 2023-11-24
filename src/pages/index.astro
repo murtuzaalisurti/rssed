@@ -3,7 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { allFeeds } from "../data/parser";
 import { fetchFeeds } from '../lib/api/fetchFeeds'
 
-let feeds;
+let feeds = null;
+
 try {
     const res = await fetchFeeds({
         method: "GET",
@@ -12,6 +13,23 @@ try {
     })
     const { data } = JSON.parse(res)
     feeds = await allFeeds(data)
+
+    const feedsToSort = feeds.filter(f => {
+        // @ts-ignore
+        return (f.lastBuildDate && f.items.length !== 0 && f.title !== 'Syntackle')
+    })
+    
+    feedsToSort.sort((a, b) => {
+        // @ts-ignore
+        return new Date(b.lastBuildDate) - new Date(a.lastBuildDate);
+    })
+
+    feeds = [
+        ...feeds.filter(f => f.title === 'Syntackle'),
+        ...feedsToSort,
+        // @ts-ignore
+        ...feeds.filter(f => (f.items.length === 0 || !f.lastBuildDate))
+    ]
 } catch (error) {
     console.log(error)
 }
