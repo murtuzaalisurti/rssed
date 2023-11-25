@@ -3,6 +3,11 @@ import Layout from "../layouts/Layout.astro";
 import { allFeeds } from "../data/parser";
 import { fetchFeeds } from '../lib/api/fetchFeeds'
 
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+
+dayjs.extend(relativeTime);
+
 let feeds = null;
 
 try {
@@ -48,6 +53,13 @@ try {
                         {
                             feed.title === "Syntackle" ? <p>shameless promotion &#10085;</p> : <></>
                         }
+                        <!-- @ts-ignore -->
+                        <time datetime={new Date(feed.lastBuildDate).toLocaleString('default')}>
+                            {
+                                // @ts-ignore
+                                dayjs().to(dayjs(feed.lastBuildDate))
+                            }
+                        </time>
                     </div>
                 );
             }) : (
@@ -71,5 +83,11 @@ try {
         padding: 1.5rem;
         border: 0.3rem solid rgba(201, 125, 96, 0.3);
         border-radius: 1rem;
+    }
+    time {
+        opacity: 0.9;
+        font-style: italic;
+        font-size: 0.75rem;
+        padding: 1rem 0 0 0;
     }
 </style>
