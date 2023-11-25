@@ -1,4 +1,4 @@
-# freed
+# rssed
 
 a collection of dev rss feeds :)
 
