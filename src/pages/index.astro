@@ -26,7 +26,11 @@ try {
     
     feedsToSort.sort((a, b) => {
         // @ts-ignore
-        return new Date(b.lastBuildDate) - new Date(a.lastBuildDate);
+        const lastUpdatedA = a.pubDate || a.lastBuildDate
+        // @ts-ignore
+        const lastUpdatedB = b.pubDate || b.lastBuildDate
+        // @ts-ignore
+        return new Date(lastUpdatedB) - new Date(lastUpdatedA);
     })
 
     feeds = [
@@ -44,6 +48,8 @@ try {
     <div id="feed_list">
         {
             feeds ? feeds?.map((feed) => {
+                // @ts-ignore
+                const lastUpdated = feed.pubDate || feed.lastBuildDate
                 return (
                     <div class="feed">
                         <h2>
@@ -53,11 +59,9 @@ try {
                         {
                             feed.title === "Syntackle" ? <p>shameless promotion &#10085;</p> : <></>
                         }
-                        <!-- @ts-ignore -->
-                        <time datetime={new Date(feed.lastBuildDate).toLocaleString('default')}>
+                        <time datetime={new Date(lastUpdated).toLocaleString('default')}>
                             {
-                                // @ts-ignore
-                                dayjs().to(dayjs(feed.lastBuildDate))
+                                dayjs().to(dayjs(lastUpdated))
                             }
                         </time>
                     </div>
