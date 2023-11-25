@@ -20,15 +20,14 @@ try {
     feeds = await allFeeds(data)
 
     const feedsToSort = feeds.filter(f => {
-        // @ts-ignore
-        return (f.lastBuildDate && f.items.length !== 0 && f.title !== 'Syntackle')
+        return (f.items.length !== 0 && f.title !== 'Syntackle')
     })
     
     feedsToSort.sort((a, b) => {
         // @ts-ignore
-        const lastUpdatedA = a.pubDate || a.lastBuildDate
+        const lastUpdatedA = a.items.length !== 0 ? a.items[0].pubDate : a.lastBuildDate
         // @ts-ignore
-        const lastUpdatedB = b.pubDate || b.lastBuildDate
+        const lastUpdatedB = b.items.length !== 0 ? b.items[0].pubDate : b.lastBuildDate
         // @ts-ignore
         return new Date(lastUpdatedB) - new Date(lastUpdatedA);
     })
@@ -37,7 +36,7 @@ try {
         ...feeds.filter(f => f.title === 'Syntackle'),
         ...feedsToSort,
         // @ts-ignore
-        ...feeds.filter(f => (f.items.length === 0 || !f.lastBuildDate))
+        ...feeds.filter(f => (f.items.length === 0))
     ]
 } catch (error) {
     console.log(error)
@@ -49,7 +48,7 @@ try {
         {
             feeds ? feeds?.map((feed) => {
                 // @ts-ignore
-                const lastUpdated = feed.pubDate || feed.lastBuildDate
+                const lastUpdated = feed.items.length !== 0 ? feed.items[0].pubDate : feed.lastBuildDate;
                 return (
                     <div class="feed">
                         <h2>
