@@ -13,9 +13,14 @@ const { title } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="author" content="Murtuzaali Surti" />
+        <meta name="description" content="a collection of dev rss feeds" />
+        <meta property="og:title" content="rssed" />
+        <meta property="og:description" content="a collection of dev rss feeds" />
+        <meta property="og:image" content="/assets/rssedOg.jpg" />
+        <meta property="og:image:secure_url" content="https://rssed.netlify.app/assets/rssedOg.jpg">
         <title>{title}</title>
     </head>
     <body>
