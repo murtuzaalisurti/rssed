@@ -50,7 +50,7 @@ try {
                 // @ts-ignore
                 const lastUpdated = feed.items.length !== 0 ? feed.items[0].pubDate : feed.lastBuildDate;
                 return (
-                    <div class="feed">
+                    <div class="feed" data-items={`${feed.items.length !== 0}`} data-last-published={new Date(lastUpdated)} data-feed-id={feed.id}>
                         <h2>
                             <a href={`/feed/${feed.id}`}>{feed.title}</a>
                         </h2>
@@ -80,12 +80,26 @@ try {
         gap: 2rem;
     }
     .feed {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
         padding: 1.5rem;
         border: 0.3rem solid rgba(201, 125, 96, 0.3);
         border-radius: 1rem;
+
+    }
+    .feed_banner::before {
+        position: absolute;
+        content: '• new •';
+        right: 0.3rem;
+        top: 0.3rem;
+        width: fit-content;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+        border: 0.1rem solid rgba(201, 125, 96, 0.3);
+        background: rgba(201, 125, 96, 0.3);
+        border-radius: 0.5rem;
     }
     time {
         opacity: 0.9;
@@ -94,3 +108,47 @@ try {
         padding: 1rem 0 0 0;
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.feed').forEach(e => {
+            const ele = e as HTMLElement;
+            const feedId = ele.dataset.feedId as string;
+            const lastPublishedTime = new Date(`${ele.dataset.lastPublished}`).getTime();
+
+            if (!localStorage.getItem(feedId)) {
+
+                localStorage.setItem(feedId, JSON.stringify({
+                    read: true,
+                    timestamp: lastPublishedTime
+                }));
+
+                ele.classList.remove('feed_banner');
+
+            } else {
+
+                const loggedPublishTime = Number(JSON.parse(localStorage.getItem(feedId) as string).timestamp);
+
+                if (!((lastPublishedTime - loggedPublishTime) <= 0)) {
+
+                    localStorage.setItem(feedId, JSON.stringify({
+                        read: false,
+                        timestamp: lastPublishedTime
+                    }));
+
+                    ele.dataset.items === 'true' && ele.classList.add('feed_banner');
+                }
+            }
+
+
+            ele.addEventListener('click', (ev) => {
+                localStorage.setItem(feedId, JSON.stringify({
+                    read: true,
+                    timestamp: lastPublishedTime
+                }));
+
+                ele.classList.remove('feed_banner');
+            })
+        })
+    })
+</script>
