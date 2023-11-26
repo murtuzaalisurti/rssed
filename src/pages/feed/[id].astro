@@ -13,16 +13,19 @@ export async function getStaticPaths() {
         const { data } = JSON.parse(res);
 
         const feeds = await allFeeds(data as { id: string; url: string }[]);
-        const feedList: Record<string, Record<string, any>>[] = data.map((fl: { id: string; url: string }) => {
-            return {
-                params: {
-                    id: fl.id,
-                },
-                props: {
-                    feeds: feeds.filter((f) => f.id === fl.id)
-                }
-            };
-        });
+
+        const feedList: Record<string, Record<string, any>>[] = data.map(
+            (fl: { id: string; url: string }) => {
+                return {
+                    params: {
+                        id: fl.id,
+                    },
+                    props: {
+                        feeds: feeds.filter((f) => f.id === fl.id),
+                    },
+                };
+            }
+        );
 
         return feedList
             ? feedList
@@ -45,8 +48,8 @@ export async function getStaticPaths() {
                     id: "404",
                 },
                 props: {
-                    feeds: null
-                }
+                    feeds: null,
+                },
             },
         ];
     }
@@ -63,21 +66,34 @@ const { feeds } = Astro.props;
             <p>{feeds && "Posts"}</p>
         </div>
         {
-            feeds?.map((f: any) => {
-                return f.items.map((item: any) => {
-                    return (
-                        <div class="post">
-                            <h3>
-                                <a href={item.link}>{item.title}</a>
-                            </h3>
-                            <p>
-                                {item.contentSnippet?.split(".")[0]}
-                                <a href={item.link}>[...]</a>
-                            </p>
-                        </div>
-                    );
-                });
-            })
+            feeds && feeds[0].items.length !== 0 ? (
+                feeds?.map((f: any) => {
+                    return f.items.map((item: any) => {
+                        const description =
+                            item.contentSnippet ||
+                            item.summary ||
+                            item.content ||
+                            item["content:encodedSnippet"] ||
+                            item["content:encoded"];
+                        return (
+                            <div class="post">
+                                <h3>
+                                    <a href={item.link} set:html={item.title} />
+                                    {` 🔗`}
+                                </h3>
+                                {description && (
+                                    <p>
+                                        {`${description.substring(0, 150)} `}
+                                        <a href={item.link}>[...]</a>
+                                    </p>
+                                )}
+                            </div>
+                        );
+                    });
+                })
+            ) : (
+                <p>No posts found.</p>
+            )
         }
     </div>
 </Layout>
