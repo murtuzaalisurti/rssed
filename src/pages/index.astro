@@ -127,14 +127,16 @@ try {
 
             } else {
 
-                const loggedPublishTime = Number(JSON.parse(localStorage.getItem(feedId) as string).timestamp);
+                const prevPostLogRead = JSON.parse(localStorage.getItem(feedId) as string);
+                const loggedPublishTime = Number(prevPostLogRead.timestamp);
 
                 if (!((lastPublishedTime - loggedPublishTime) <= 0)) {
 
-                    localStorage.setItem(feedId, JSON.stringify({
-                        read: false,
-                        timestamp: lastPublishedTime
-                    }));
+                    const newPostLogUnread = {
+                        ...prevPostLogRead,
+                        read: false
+                    }
+                    localStorage.setItem(feedId, JSON.stringify(newPostLogUnread));
 
                     ele.dataset.items === 'true' && ele.classList.add('feed_banner');
                 }
