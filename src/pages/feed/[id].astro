@@ -14,8 +14,8 @@ export async function getStaticPaths() {
 
         const feeds = await allFeeds(data as { id: string; url: string }[]);
 
-        const feedList: Record<string, Record<string, any>>[] = data.map(
-            (fl: { id: string; url: string }) => {
+        const feedList: Record<string, Record<string, any>>[] = feeds.map(
+            (fl) => {
                 return {
                     params: {
                         id: fl.id,
