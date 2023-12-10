@@ -56,6 +56,9 @@ export async function getStaticPaths() {
 }
 
 const { feeds } = Astro.props;
+feeds.forEach((f: any) => {
+    console.log(f.title)
+})
 ---
 
 <Layout title="Feed">
