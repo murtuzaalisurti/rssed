@@ -7,12 +7,20 @@ export const ParseRSS = async (url: string) => {
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
-    return Promise.all(
-        list.map(async (site) => {
-            return {
+    const feeds = [];
+
+    for (const site of list) {
+        try {
+            const feed = {
                 ...await ParseRSS(site.url),
                 id: site.id
             }
-        })
-    )
+            feeds.push(feed)
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    return feeds
 }
+
