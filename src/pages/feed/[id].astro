@@ -56,13 +56,14 @@ export async function getStaticPaths() {
 }
 
 const { feeds } = Astro.props;
-feeds.forEach((f: any) => {
-    console.log(f.title)
-})
+const lastUpdated =
+    feeds[0].items.length !== 0
+        ? feeds[0].items[0].pubDate
+        : feeds[0].lastBuildDate;
 ---
 
 <Layout title="Feed">
-    <div id="feed_content">
+    <div id="feed_content" data-feed-id={feeds[0].id} data-last-published-time={lastUpdated}>
         <div>
             <hr class="design_element" />
             <h2>{feeds ? feeds[0].title : "feed not found!"}</h2>
@@ -126,3 +127,15 @@ feeds.forEach((f: any) => {
         border-radius: 1rem;
     }
 </style>
+
+<script>
+    const { feedId, lastPublishedTime } = (document.querySelector("#feed_content") as HTMLElement)
+        .dataset;
+    localStorage.setItem(
+        feedId as string,
+        JSON.stringify({
+            read: true,
+            timestamp: new Date(lastPublishedTime as string).getTime(),
+        })
+    );
+</script>

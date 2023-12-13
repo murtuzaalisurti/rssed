@@ -139,18 +139,11 @@ try {
                     localStorage.setItem(feedId, JSON.stringify(newPostLogUnread));
 
                     ele.dataset.items === 'true' && ele.classList.add('feed_banner');
+                } else {
+                    const read = JSON.parse(localStorage.getItem(feedId) as string).read;
+                    read && ele.classList.remove('feed_banner');
                 }
             }
-
-
-            ele.addEventListener('click', (ev) => {
-                localStorage.setItem(feedId, JSON.stringify({
-                    read: true,
-                    timestamp: lastPublishedTime
-                }));
-
-                ele.classList.remove('feed_banner');
-            })
         })
     })
 </script>
