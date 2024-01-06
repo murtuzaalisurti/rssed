@@ -1,30 +1,25 @@
-import { connectDatabase } from "../../data/connect"
-import { SQL_QUERY_BASE_PATH } from "../../lib/constants"
+import feedlist from "../../data/feedlist"
 
 export const fetchFeeds = async (request: Record<string, any>) => {
-    const client = connectDatabase()
     const feedId = request.feedId;
 
-    const file = feedId ? `getSingleFeed` : `getListOfFeeds`
-
     try {
-        const queryResult = feedId 
-            ? await client.file<[{ id: string, url: string }]>(`${SQL_QUERY_BASE_PATH}/${file}.sql`, [`${feedId}`]) 
-            : await client.file<[{ id: string, url: string }]>(`${SQL_QUERY_BASE_PATH}/${file}.sql`);
-    
-        await client.end();
+
+        const result = feedId ? (
+            [feedlist.find((feed) => feed.id === feedId)]
+        ) : (
+            feedlist
+        )
         
         return (
             JSON.stringify({
                 message: "Success",
                 status: 200,
                 method: request.method,
-                data: queryResult
+                data: result
             })
         )
     } catch (error) {
-        await client.end()
-
         if(error instanceof Error) {
             throw Error (
                 JSON.stringify({

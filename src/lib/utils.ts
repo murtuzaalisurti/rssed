@@ -1,1 +1,0 @@
-export const getAPIBaseURL = (url: string) => url.split("/", 3).join("/")
