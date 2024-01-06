@@ -1,1 +1,0 @@
-export const SQL_QUERY_BASE_PATH = './src/data/sql'

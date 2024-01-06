@@ -1,4 +1,13 @@
-import Parser from "rss-parser";
+import Parser, { type Output } from "rss-parser";
+import dayjs from "dayjs";
+
+let feeds: {
+    time: string | null
+    items: (Output<{ [key: string]: any }> & { id: string })[]
+} = {
+    time: null,
+    items: []
+};
 
 export const ParseRSS = async (url: string) => {
     return await new Parser({
@@ -7,20 +16,55 @@ export const ParseRSS = async (url: string) => {
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
-    const feeds = [];
 
-    for (const site of list) {
-        try {
-            const feed = {
-                ...await ParseRSS(site.url),
-                id: site.id
+    if (!feeds.time) {
+        for (const site of list) {
+            console.time(`time for feed: ${site.url}`)
+            try {
+                const feed = {
+                    ...await ParseRSS(site.url),
+                    id: site.id
+                }
+                feeds.items.push(feed)
+            } catch (error) {
+                console.error({
+                    feed: {
+                        id: site.id,
+                        url: site.url,
+                    },
+                    error
+                })
             }
-            feeds.push(feed)
-        } catch (error) {
-            console.error(error)
+            console.timeEnd(`time for feed: ${site.url}`)
+        }
+        feeds.time = dayjs().toISOString()
+    } else {
+        console.log(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')}`)
+
+        if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > 120000) {
+            for (const site of list) {
+                console.time(`time for feed: ${site.url}`)
+                try {
+                    const feed = {
+                        ...await ParseRSS(site.url),
+                        id: site.id
+                    }
+                    feeds.items.push(feed)
+                } catch (error) {
+                    console.error({
+                        feed: {
+                            id: site.id,
+                            url: site.url,
+                        },
+                        error
+                    })
+                }
+                console.timeEnd(`time for feed: ${site.url}`)
+            }
+            feeds.time = dayjs().format('YYYY-MM-DD')
         }
     }
 
-    return feeds
+    return feeds.items
 }
 
