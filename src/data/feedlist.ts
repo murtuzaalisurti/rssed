@@ -174,5 +174,9 @@ export default [
     {
       "id": "a0e4adb7-b23d-4b36-a72e-52862e4befa5",
       "url": "https://blog.otterlord.dev/rss.xml"
+    },
+    {
+      "id": "93389388-2a18-49ed-ab8e-087a238546e4",
+      "url": "https://nalanj.dev/index.xml"
     }
 ]
