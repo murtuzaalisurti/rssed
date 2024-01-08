@@ -61,7 +61,7 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
                 }
                 console.timeEnd(`time for feed: ${site.url}`)
             }
-            feeds.time = dayjs().format('YYYY-MM-DD')
+            feeds.time = dayjs().toISOString()
         }
     }
 
