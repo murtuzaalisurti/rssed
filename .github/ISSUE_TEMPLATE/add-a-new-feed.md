@@ -8,6 +8,7 @@ assignees: ''
 ---
 
 - Mention a random `uuid` and the feed url here:
+- You can generate a random uuid by running and logging `crypto.randomUUID()` in browser console.
 
 ```js
 {
