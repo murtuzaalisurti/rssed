@@ -15,53 +15,47 @@ export const ParseRSS = async (url: string) => {
     }).parseURL(url)
 }
 
+const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
+
+    const feedPromises = list.map(async (site) => {
+        console.time(`time for feed: ${site.url}`)
+    
+        try {
+            const feed = {
+                ...await ParseRSS(site.url),
+                id: site.id
+            }
+            console.timeEnd(`time for feed: ${site.url}`)
+            return feed
+        } catch (error) {
+            console.error({
+                feed: {
+                    id: site.id,
+                    url: site.url,
+                },
+                error
+            })
+            console.timeEnd(`time for feed: ${site.url}`)
+        }
+    })
+
+    Promise.allSettled(feedPromises)
+
+    for await (const feed of feedPromises) {
+        feed && feeds.items.push(feed)
+    }
+}
+
 export const allFeeds = async (list: { id: string, url: string }[]) => {
 
     if (!feeds.time) {
-        for (const site of list) {
-            console.time(`time for feed: ${site.url}`)
-            try {
-                const feed = {
-                    ...await ParseRSS(site.url),
-                    id: site.id
-                }
-                feeds.items.push(feed)
-            } catch (error) {
-                console.error({
-                    feed: {
-                        id: site.id,
-                        url: site.url,
-                    },
-                    error
-                })
-            }
-            console.timeEnd(`time for feed: ${site.url}`)
-        }
+        await parseAndStoreFeeds(list)
         feeds.time = dayjs().toISOString()
     } else {
-        console.log(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')}`)
+        console.log(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms`)
 
         if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > 120000) {
-            for (const site of list) {
-                console.time(`time for feed: ${site.url}`)
-                try {
-                    const feed = {
-                        ...await ParseRSS(site.url),
-                        id: site.id
-                    }
-                    feeds.items.push(feed)
-                } catch (error) {
-                    console.error({
-                        feed: {
-                            id: site.id,
-                            url: site.url,
-                        },
-                        error
-                    })
-                }
-                console.timeEnd(`time for feed: ${site.url}`)
-            }
-            feeds.time = dayjs().toISOString()
+            await parseAndStoreFeeds(list)
         }
     }
 
