@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+- Mention a random `uuid` and the feed url here:
+
 ```js
 {
     id: <uuid>
@@ -14,4 +16,5 @@ assignees: ''
 }
 ```
 
+If you already raised a PR:
 - [ ] Have you added the above object correctly in `feedlist.ts`?
