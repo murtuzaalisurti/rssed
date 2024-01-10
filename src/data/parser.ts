@@ -1,5 +1,7 @@
 import Parser, { type Output } from "rss-parser";
 import dayjs from "dayjs";
+import { logger } from "../lib/logger";
+import { colors } from "consola/utils";
 
 let feeds: {
     time: string | null
@@ -18,6 +20,7 @@ export const ParseRSS = async (url: string) => {
 }
 
 const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
+    logger.start("Fetching feeds...")
 
     const feedPromises = list.map(async (site) => {
         console.time(`time for feed: ${site.url}`)
@@ -30,7 +33,7 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
             console.timeEnd(`time for feed: ${site.url}`)
             return feed
         } catch (error) {
-            console.error({
+            logger.error({
                 feed: {
                     id: site.id,
                     url: site.url,
@@ -48,6 +51,7 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
             !feeds.items.some(i => i.id === feed.id) && feeds.items.push(feed)
         )
     }
+    logger.success(`${colors.green('Fetched feeds successfully')}! ${colors.italic('Although there might be some feeds which resulted in an error.')}`)
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
@@ -57,7 +61,7 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
         feeds.time = dayjs().toISOString()
     } else {
         if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > cacheTime) {
-            console.warn(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms exceeded ${cacheTime} ms (30 min), re-fetching feeds... `)
+            logger.warn(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms exceeded ${cacheTime} ms (30 min), re-fetching feeds... `)
             await parseAndStoreFeeds(list)
         }
     }
