@@ -10,17 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^1.1.2",
-    "@astrojs/netlify": "^3.0.3",
-    "@astrojs/vercel": "^5.0.2",
-    "@fontsource-variable/montserrat": "^5.0.16",
-    "@fontsource-variable/rubik": "^5.0.19",
-    "@netlify/functions": "^2.3.0",
-    "@types/node": "^20.8.7",
+    "@astrojs/netlify": "^4.1.0",
+    "@fontsource-variable/montserrat": "^5.0.17",
+    "@fontsource-variable/rubik": "^5.0.20",
+    "@netlify/functions": "^2.4.1",
+    "@types/node": "^20.10.8",
     "astro": "^3.3.2",
     "dayjs": "^1.11.10",
     "node-fetch": "^3.3.2",
-    "postgres": "^3.4.0",
     "rss-parser": "^3.13.0"
   }
 }
