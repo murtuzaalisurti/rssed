@@ -42,7 +42,9 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
     Promise.allSettled(feedPromises)
 
     for await (const feed of feedPromises) {
-        feed && feeds.items.push(feed)
+        feed && (
+            !feeds.items.some(i => i.id === feed.id) && feeds.items.push(feed)
+        )
     }
 }
 
