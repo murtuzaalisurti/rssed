@@ -82,7 +82,9 @@ const lastUpdated =
                         return (
                             <div class="post">
                                 <h3>
-                                    <a href={item.link} set:html={item.title} />
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        {item.title}
+                                    </a>
                                     {` 🔗`}
                                 </h3>
                                 {description && (
