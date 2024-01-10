@@ -20,7 +20,7 @@ export const ParseRSS = async (url: string) => {
 }
 
 const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
-    logger.start("Fetching feeds...")
+    logger.start("Fetching feeds...\n")
 
     const feedPromises = list.map(async (site) => {
         console.time(`time for feed: ${site.url}`)
@@ -51,7 +51,7 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
             !feeds.items.some(i => i.id === feed.id) && feeds.items.push(feed)
         )
     }
-    logger.success(`${colors.green('Fetched feeds successfully')}! ${colors.italic('Although there might be some feeds which resulted in an error.')}`)
+    logger.success(`${colors.green('Fetched feeds successfully')}! ${colors.italic('Although there might be some feeds which resulted in an error.')}\n`)
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
@@ -61,7 +61,7 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
         feeds.time = dayjs().toISOString()
     } else {
         if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > cacheTime) {
-            logger.warn(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms exceeded ${cacheTime} ms (30 min), re-fetching feeds... `)
+            logger.warn(`cache time: ${colors.yellow(`${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms`)} exceeded ${colors.blue(cacheTime)} ms (30 min), ${colors.green('re-fetching feeds...')}`)
             await parseAndStoreFeeds(list)
         }
     }
