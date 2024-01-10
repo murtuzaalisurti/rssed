@@ -15,7 +15,7 @@
     "@fontsource-variable/rubik": "^5.0.20",
     "@netlify/functions": "^2.4.1",
     "@types/node": "^20.10.8",
-    "astro": "^3.3.2",
+    "astro": "^4.1.1",
     "dayjs": "^1.11.10",
     "node-fetch": "^3.3.2",
     "rss-parser": "^3.13.0"
