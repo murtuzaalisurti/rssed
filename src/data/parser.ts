@@ -9,6 +9,8 @@ let feeds: {
     items: []
 };
 
+const cacheTime = 1800000 // in milliseconds
+
 export const ParseRSS = async (url: string) => {
     return await new Parser({
         timeout: 120000
@@ -54,9 +56,8 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
         await parseAndStoreFeeds(list)
         feeds.time = dayjs().toISOString()
     } else {
-        console.log(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms`)
-
-        if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > 120000) {
+        if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > cacheTime) {
+            console.warn(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms exceeded ${cacheTime} ms (30 min), re-fetching feeds... `)
             await parseAndStoreFeeds(list)
         }
     }
