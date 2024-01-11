@@ -190,9 +190,5 @@ export default [
   {
     "id": "89e1ab44-6abd-4536-98fd-82af683e8e1b",
     "url": "https://nicolas-hoizey.com/feeds/articles.xml"
-  },
-  {
-    "id": "89e1ab44-6abd-4536-98fd-82af683e8e1b",
-    "url": "https://nicolas-hoizey.com/feeds/articles.xml"
   }
 ]
