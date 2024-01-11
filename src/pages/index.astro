@@ -9,6 +9,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 
 let feeds = null;
+let err = null;
 
 try {
     const res = await fetchFeeds({
@@ -39,6 +40,7 @@ try {
         ...feeds.filter(f => (f.items.length === 0))
     ]
 } catch (error) {
+    err = (error as Error).message
     console.log(error)
 }
 ---
@@ -66,7 +68,19 @@ try {
                     </div>
                 );
             }) : (
-                <p>No feeds found!</p>
+                err ? (
+                    <p>Oops. {err}</p>
+                    <i>
+                        <a href="https://github.com/murtuzaalisurti/rssed">Report an issue</a>
+                        🐛
+                    </i>
+                ) : (
+                    <p>No feeds found!</p>
+                    <i>
+                        <a href="https://github.com/murtuzaalisurti/rssed">Report an issue</a>
+                        🐛
+                    </i>
+                )
             )
         }
     </div>
