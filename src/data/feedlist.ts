@@ -178,5 +178,9 @@ export default [
     {
       "id": "93389388-2a18-49ed-ab8e-087a238546e4",
       "url": "https://nalanj.dev/index.xml"
+    },
+    {
+      "id": "18fe28c3-4b98-4d0d-a307-9186f6844663",
+      "url": "https://www.joelonsoftware.com/feed/"
     }
 ]
