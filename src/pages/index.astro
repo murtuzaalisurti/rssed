@@ -11,38 +11,34 @@ dayjs.extend(relativeTime);
 let feeds = null;
 let err = null;
 
-try {
-    const res = await fetchFeeds({
-        method: "GET",
-        url: Astro.request.url,
-        req: Astro.request
-    })
-    const { data } = JSON.parse(res)
-    feeds = await allFeeds(data)
+const res = await fetchFeeds({
+    method: "GET",
+    url: Astro.request.url,
+    req: Astro.request
+})
+const { data } = JSON.parse(res)
+feeds = await allFeeds(data)
 
-    const feedsToSort = feeds.filter(f => {
-        return (f.items.length !== 0 && f.title !== 'Syntackle')
-    })
-    
-    feedsToSort.sort((a, b) => {
-        // @ts-ignore
-        const lastUpdatedA = a.items.length !== 0 ? a.items[0].pubDate : a.lastBuildDate
-        // @ts-ignore
-        const lastUpdatedB = b.items.length !== 0 ? b.items[0].pubDate : b.lastBuildDate
-        // @ts-ignore
-        return new Date(lastUpdatedB) - new Date(lastUpdatedA);
-    })
+const feedsToSort = feeds.filter(f => {
+    return (f.items.length !== 0 && f.title !== 'Syntackle')
+})
 
-    feeds = [
-        ...feeds.filter(f => f.title === 'Syntackle'),
-        ...feedsToSort,
-        // @ts-ignore
-        ...feeds.filter(f => (f.items.length === 0))
-    ]
-} catch (error) {
-    err = (error as Error).message
-    console.log(error)
-}
+feedsToSort.sort((a, b) => {
+    // @ts-ignore
+    const lastUpdatedA = a.items.length !== 0 ? a.items[0].pubDate : a.lastBuildDate
+    // @ts-ignore
+    const lastUpdatedB = b.items.length !== 0 ? b.items[0].pubDate : b.lastBuildDate
+    // @ts-ignore
+    return new Date(lastUpdatedB) - new Date(lastUpdatedA);
+})
+
+feeds = [
+    ...feeds.filter(f => f.title === 'Syntackle'),
+    ...feedsToSort,
+    // @ts-ignore
+    ...feeds.filter(f => (f.items.length === 0))
+]
+
 ---
 
 <Layout title="rssed - a Collection of Developer RSS Feeds">
