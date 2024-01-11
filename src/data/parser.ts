@@ -60,9 +60,12 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
         await parseAndStoreFeeds(list)
         feeds.time = dayjs().toISOString()
     } else {
+        logger.info(`${colors.yellow(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'seconds')}s`)}`)
+
         if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > cacheTime) {
             logger.warn(`cache time: ${colors.yellow(`${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms`)} exceeded ${colors.blue(cacheTime)} ms (30 min), ${colors.green('re-fetching feeds...')}`)
             await parseAndStoreFeeds(list)
+            feeds.time = dayjs().toISOString()
         }
     }
 
