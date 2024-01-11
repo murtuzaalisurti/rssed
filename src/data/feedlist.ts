@@ -182,5 +182,9 @@ export default [
     {
       "id": "18fe28c3-4b98-4d0d-a307-9186f6844663",
       "url": "https://www.joelonsoftware.com/feed/"
+    },
+    {
+      "id": "96b4a353-a2ff-42a9-b186-c724b1b30443",
+      "url": "https://rachsmith.com/feed.xml"
     }
 ]
