@@ -51,7 +51,11 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
             !feeds.items.some(i => i.id === feed.id) && feeds.items.push(feed)
         )
     }
-    logger.success(`${colors.green('Fetched feeds successfully')}! ${colors.italic('Although there might be some feeds which resulted in an error.')}\n`)
+
+    logger.success(`${colors.green(`Fetched ${feeds.items.length} feeds successfully out of ${list.length} feeds`)}! ${colors.italic('There might be some feeds which resulted in an error.')}`)
+
+    const failedToFetchFeeds = list.filter(f => !feeds.items.map(i => i.id).includes(f.id))
+    logger.warn(`${colors.yellow(`Failed feeds\n`)}${JSON.stringify(failedToFetchFeeds, null, 2)}`)
 }
 
 export const allFeeds = async (list: { id: string, url: string }[]) => {
