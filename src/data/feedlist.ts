@@ -194,5 +194,13 @@ export default [
   {
     "id": "71c7bafd-f4c9-4243-88c3-0f0fdf2dd15b",
     "url": "https://flaviocopes.com/rss.xml"
+  },
+  {
+    "id": "c79af50b-3e8d-4df0-a4b1-99af38805b56",
+    "url": "https://www.ericapisani.dev/rss/"
+  },
+  {
+    "id": "b1612bcc-b690-4b6e-bfe4-087ce7c1ccc2",
+    "url": "https://blog.cassidoo.co/rss.xml"
   }
 ]
