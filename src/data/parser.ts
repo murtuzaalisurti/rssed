@@ -64,10 +64,10 @@ export const allFeeds = async (list: { id: string, url: string }[]) => {
         await parseAndStoreFeeds(list)
         feeds.time = dayjs().toISOString()
     } else {
-        logger.info(`${colors.yellow(`cache time: ${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'seconds')}s`)}`)
+        logger.info(`${colors.yellow(`cache time exhausted: ${parseFloat(dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'm', true).toString()).toFixed(2)} min`)}`)
 
-        if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time)) > cacheTime) {
-            logger.warn(`cache time: ${colors.yellow(`${dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'milliseconds')} ms`)} exceeded ${colors.blue(cacheTime)} ms (30 min), ${colors.green('re-fetching feeds...')}`)
+        if (dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'millisecond') > cacheTime) {
+            logger.warn(`cache time: ${colors.yellow(`${parseFloat(dayjs(dayjs().toISOString()).diff(dayjs(feeds.time), 'm', true).toString()).toFixed(2)} min`)} exceeded ${colors.blue(parseFloat((cacheTime/60000).toString()).toFixed(2))} min, ${colors.green('re-fetching feeds...')}`)
             await parseAndStoreFeeds(list)
             feeds.time = dayjs().toISOString()
         }
