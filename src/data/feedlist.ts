@@ -202,5 +202,13 @@ export default [
   {
     "id": "b1612bcc-b690-4b6e-bfe4-087ce7c1ccc2",
     "url": "https://blog.cassidoo.co/rss.xml"
+  },
+  {
+    "id": "a629a35a-6e7b-4f5d-baf9-02517f0e3280",
+    "url": "https://hashrocket.com/blog/posts.rss"
+  },
+  {
+    "id": "112c9f8c-5e97-4184-ba46-97e17d7503d7",
+    "url": "https://www.cassey.dev/feed/feed.xml"
   }
 ]
