@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prepare": "is-ci || husky install"
   },
   "dependencies": {
     "@astrojs/netlify": "^4.1.0",
@@ -18,7 +19,11 @@
     "astro": "^4.1.1",
     "consola": "^3.2.3",
     "dayjs": "^1.11.10",
+    "is-ci": "^3.0.1",
     "node-fetch": "^3.3.2",
     "rss-parser": "^3.13.0"
+  },
+  "devDependencies": {
+    "husky": "^8.0.3"
   }
 }
