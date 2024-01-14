@@ -62,7 +62,7 @@ const lastUpdated =
         : feeds[0].lastBuildDate;
 ---
 
-<Layout title="Feed">
+<Layout title=`Feed - ${feeds[0].title} - rssed`>
     <div id="feed_content" data-feed-id={feeds[0].id} data-last-published-time={lastUpdated}>
         <div>
             <hr class="design_element" />
