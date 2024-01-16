@@ -7,16 +7,10 @@ assignees: ''
 
 ---
 
-- Mention a random `uuid` and the feed url here:
-- You can generate a random uuid by running and logging `crypto.randomUUID()` in browser console.
+Mention the feed url:
 
 ```js
 {
-    id: <uuid>
     url: <feed_url>
 }
 ```
-
-If you already raised a PR:
-
-- [ ] Have you added the above object correctly in `feedlist.ts`?
