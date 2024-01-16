@@ -1,4 +1,4 @@
-import feedlist from "../../data/feedlist"
+import feedlist from "../../data/feedlist.json"
 
 const hasDuplicate = (list: Record<string, any>[], prop: string): boolean => {
     let uniqueSet = new Set()

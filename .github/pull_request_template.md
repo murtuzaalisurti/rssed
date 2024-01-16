@@ -1,6 +1,6 @@
 ## Add a new feed
 
-- [ ] Have you added the expected object correctly in `/src/data/feedlist.ts`?
+- [ ] Have you added the expected object correctly in `/src/data/feedlist.json`?
 
 If yes, then fill out the details below:
 
