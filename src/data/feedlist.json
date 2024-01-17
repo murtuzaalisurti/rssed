@@ -210,5 +210,25 @@
   {
     "id": "112c9f8c-5e97-4184-ba46-97e17d7503d7",
     "url": "https://www.cassey.dev/feed/feed.xml"
+  },
+  {
+    "id": "62ea2eb2-a214-493f-a0c1-a23353529c6e",
+    "url": "https://www.stefanjudis.com/rss.xml"
+  },
+  {
+    "id": "5bb4eb0a-9af8-4d29-a386-ae3c96eac20f",
+    "url": "https://simonplend.com/feed/"
+  },
+  {
+    "id": "08e19bcf-5e9b-491f-93ef-26e4578adfb9",
+    "url": "https://annadodson.co.uk/index.xml"
+  },
+  {
+    "id": "4c3d095f-c9af-4526-bad0-7e298ef7d942",
+    "url": "https://www.jvt.me/all/"
+  },
+  {
+    "id": "87690ae8-b620-46ef-a44e-14db77c89261",
+    "url": "https://remysharp.com/feed.xml"
   }
 ]
