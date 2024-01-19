@@ -16,25 +16,77 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <meta name="author" content="Murtuzaali Surti" />
-        <meta name="description" content="a collection of dev rss feeds - blogroll" />
+        <meta
+            name="description"
+            content="a collection of dev rss feeds - blogroll"
+        />
         <meta property="og:title" content="rssed" />
-        <meta property="og:description" content="a collection of dev rss feeds - blogroll" />
+        <meta
+            property="og:description"
+            content="a collection of dev rss feeds - blogroll"
+        />
         <meta property="og:image" content="/assets/rssedOg.jpg" />
-        <meta property="og:image:secure_url" content="https://rssed.netlify.app/assets/rssedOg.jpg">
+        <meta
+            property="og:image:secure_url"
+            content="https://rssed.netlify.app/assets/rssedOg.jpg"
+        />
         <title>{title}</title>
     </head>
     <body>
         <header>
             <h1>
-                <a style={{textDecoration: "none"}} href="/">rssed</a>
+                <a style={{ textDecoration: "none" }} href="/">rssed</a>
             </h1>
             <p>a collection of dev rss feeds - blogroll</p>
+            <div class="add_new_feed">
+                <a href="https://github.com/murtuzaalisurti/rssed/issues/new/choose" target="_blank">
+                    <p>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            style="display: inline;"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-github"
+                            ><path
+                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"
+                            ></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg
+                        >
+                        Add a new feed
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="lucide lucide-external-link"
+                            ><path d="M15 3h6v6"></path><path d="M10 14 21 3"
+                            ></path><path
+                                d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                            ></path></svg
+                        >
+                    </p>
+                </a>
+            </div>
         </header>
         <main>
             <slot />
         </main>
         <footer>
-            <p>Made with ❤ by <a href="https://murtuzaalisurti.github.io">Murtuza</a>.</p>
+            <p>
+                Made with ❤ by <a href="https://murtuzaalisurti.github.io"
+                    >Murtuza</a
+                >.
+            </p>
         </footer>
     </body>
 </html>
@@ -150,5 +202,23 @@ const { title } = Astro.props;
 
     h3 {
         font-size: 1.35rem;
+    }
+</style>
+
+<style>
+    .add_new_feed {
+        margin: 1.2rem 0 0 0;
+        width: fit-content;
+    }
+
+    .add_new_feed p {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: var(--background-color);
+        border: 0.2rem solid rgba(201, 125, 96, 0.3);
+        border-radius: 2.5rem;
+        opacity: 1;
     }
 </style>
