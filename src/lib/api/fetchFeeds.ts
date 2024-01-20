@@ -5,12 +5,24 @@ const hasDuplicate = (list: Record<string, any>[], prop: string): boolean => {
     return list.some((obj) => uniqueSet.size === uniqueSet.add(obj[prop]).size)
 }
 
+const getDuplicate = (list: Record<string, any>[], prop: string): string[] => {
+    return [
+        ...new Set(list.map(fl => fl[prop]).filter((f, i, arr) => arr.indexOf(f) !== i))
+    ]
+}
+
 const validateFeeds = (feedlist: { id: string, url: string }[]) => {
     const hasDuplicateIDs = hasDuplicate(feedlist, "id")
     const hasDuplicateURLs = hasDuplicate(feedlist, "url")
 
     if (hasDuplicateIDs || hasDuplicateURLs) {
-        throw new Error("Found duplicate records in the feed list!")
+        let duplicateIds = getDuplicate(feedlist, "id")
+        let duplicateURLs = getDuplicate(feedlist, "url")
+        throw new Error(JSON.stringify({
+            message: `Found duplicate records in the feed list!`,
+            duplicateIds,
+            duplicateURLs
+        }, null, 2))
     }
 }
 
