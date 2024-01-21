@@ -124,6 +124,7 @@ const { title } = Astro.props;
     body {
         --background-color: #262322;
         --text-color: #f2e5d7;
+        --button-hover: #443632;
         color: var(--text-color);
         background-color: var(--background-color);
         display: flex;
@@ -219,6 +220,12 @@ const { title } = Astro.props;
         background: var(--background-color);
         border: 0.2rem solid rgba(201, 125, 96, 0.3);
         border-radius: 2.5rem;
+        opacity: 0.75;
+        transition: opacity 0.35s, background 0.35s;
+    }
+
+    .add_new_feed p:hover {
         opacity: 1;
+        background: var(--button-hover);
     }
 </style>
