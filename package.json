@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "commitlint": "commitlint --edit"
   },
   "dependencies": {
     "@astrojs/netlify": "^4.1.0",
@@ -24,6 +25,8 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
     "husky": "^8.0.3"
   }
 }
