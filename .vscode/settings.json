@@ -13,5 +13,8 @@
             "name": "freed",
             "connectString": "postgres://murtuzaalisurti:vMHu69cNEyUR@ep-steep-cloud-51254016.eu-central-1.aws.neon.tech/neondb?sslmode=verify"
         }
+    ],
+    "cSpell.words": [
+        "feedlist"
     ]
 }
