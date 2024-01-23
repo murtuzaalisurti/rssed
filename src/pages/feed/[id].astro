@@ -5,10 +5,7 @@ import { fetchFeeds } from "../../lib/api/fetchFeeds";
 
 export async function getStaticPaths() {
     try {
-        const res = await fetchFeeds({
-            method: "GET",
-            req: Astro.request,
-        });
+        const res = await fetchFeeds();
 
         const { data } = JSON.parse(res);
 

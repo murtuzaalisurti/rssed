@@ -11,11 +11,7 @@ dayjs.extend(relativeTime);
 let feeds = null;
 let err = null;
 
-const res = await fetchFeeds({
-    method: "GET",
-    url: Astro.request.url,
-    req: Astro.request
-})
+const res = await fetchFeeds()
 const { data } = JSON.parse(res)
 feeds = await allFeeds(data)
 

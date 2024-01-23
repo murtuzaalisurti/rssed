@@ -26,23 +26,20 @@ const validateFeeds = (feedlist: { id: string, url: string }[]) => {
     }
 }
 
-export const fetchFeeds = async (request: Record<string, any>) => {
-
+export const fetchFeeds = async (feedId?: string) => {
     try {
         validateFeeds(feedlist);
-        const feedId = request.feedId;
 
         const result = feedId ? (
             [feedlist.find((feed) => feed.id === feedId)]
         ) : (
             feedlist
-        )
+        );
 
         return (
             JSON.stringify({
                 message: "Success",
                 status: 200,
-                method: request.method,
                 data: result
             })
         )
