@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "is-ci || husky install",
-    "commitlint": "commitlint --edit"
+    "commitlint": "commitlint --edit",
+    "genuuid": "node -e \"console.log(require('crypto').randomUUID())\""
   },
   "dependencies": {
     "@astrojs/netlify": "^4.1.0",
