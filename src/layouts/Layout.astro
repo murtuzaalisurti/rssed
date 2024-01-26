@@ -39,7 +39,10 @@ const { title } = Astro.props;
             </h1>
             <p>a collection of dev rss feeds - blogroll</p>
             <div class="add_new_feed">
-                <a href="https://github.com/murtuzaalisurti/rssed/issues/new/choose" target="_blank">
+                <a
+                    href="https://github.com/murtuzaalisurti/rssed/issues/new/choose"
+                    target="_blank"
+                >
                     <p>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -116,9 +119,12 @@ const { title } = Astro.props;
         color: var(--background-color);
     }
 
-    html {
-        scrollbar-color: #f2e5d7 #262322;
-        scrollbar-width: thin;
+    /* Browsers without `::-webkit-scrollbar-*` support */
+    @supports (not selector(::-webkit-scrollbar)) {
+        html {
+            scrollbar-color: #f2e5d7 #262322;
+            scrollbar-width: thin;
+        }
     }
 
     body {
@@ -221,7 +227,9 @@ const { title } = Astro.props;
         border: 0.2rem solid rgba(201, 125, 96, 0.3);
         border-radius: 2.5rem;
         opacity: 0.75;
-        transition: opacity 0.35s, background 0.35s;
+        transition:
+            opacity 0.35s,
+            background 0.35s;
     }
 
     .add_new_feed p:hover {
