@@ -12,12 +12,19 @@ const getDuplicate = (list: Record<string, any>[], prop: string): string[] => {
 }
 
 export const validateFeeds = (feedlist: { id: string, url: string }[]) => {
-    const hasDuplicateIDs = hasDuplicate(feedlist, "id")
-    const hasDuplicateURLs = hasDuplicate(feedlist, "url")
+    /**
+     * ? feedlist having hostname extracted from the url for duplication check
+     */
+    const feedListWithOnlyHostname = feedlist.map(feed => ({
+        id: feed.id,
+        url: `${new URL(feed.url).hostname}${new URL(feed.url).pathname}`
+    }))
+    const hasDuplicateIDs = hasDuplicate(feedListWithOnlyHostname, "id")
+    const hasDuplicateURLs = hasDuplicate(feedListWithOnlyHostname, "url")
 
     if (hasDuplicateIDs || hasDuplicateURLs) {
-        let duplicateIds = getDuplicate(feedlist, "id")
-        let duplicateURLs = getDuplicate(feedlist, "url")
+        let duplicateIds = getDuplicate(feedListWithOnlyHostname, "id")
+        let duplicateURLs = getDuplicate(feedListWithOnlyHostname, "url")
         throw new Error(JSON.stringify({
             message: `Found duplicate records in the feed list!`,
             duplicateIds,
