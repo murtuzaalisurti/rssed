@@ -1,7 +1,8 @@
 import fs from 'fs'
-import { randomUUID } from 'crypto';
+import { randomUUID } from 'crypto'
 import prompts, { type PromptObject } from 'prompts'
-import { logger } from '../src/lib/logger.ts';
+import { logger } from '../src/lib/logger.ts'
+import { validateFeeds } from '../src/lib/api/fetchFeeds.ts'
 
 const feedlist: { id: string, url: string }[] = JSON.parse(
     fs.readFileSync(new URL("../src/data/feedlist.json", import.meta.url)) as unknown as string
@@ -29,12 +30,16 @@ async function ask() {
     return await prompts(askPrompts, { onCancel })
 }
 
-const { url } = await ask();
+const { url } = await ask()
+
+const updatedFeedList = updatedFeeds(feedlist, url)
+
+validateFeeds(updatedFeedList)
 
 fs.writeFileSync(
     "./src/data/feedlist.json",
     JSON.stringify(
-        updatedFeeds(feedlist, url),
+        updatedFeedList,
         null,
         2
     ),

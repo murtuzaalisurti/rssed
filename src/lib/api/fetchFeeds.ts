@@ -1,4 +1,4 @@
-import feedlist from "../../data/feedlist.json"
+import FeedList from "../../data/feedlist.json" assert { type: 'json' }
 
 const hasDuplicate = (list: Record<string, any>[], prop: string): boolean => {
     let uniqueSet = new Set()
@@ -11,7 +11,7 @@ const getDuplicate = (list: Record<string, any>[], prop: string): string[] => {
     ]
 }
 
-const validateFeeds = (feedlist: { id: string, url: string }[]) => {
+export const validateFeeds = (feedlist: { id: string, url: string }[]) => {
     const hasDuplicateIDs = hasDuplicate(feedlist, "id")
     const hasDuplicateURLs = hasDuplicate(feedlist, "url")
 
@@ -28,12 +28,12 @@ const validateFeeds = (feedlist: { id: string, url: string }[]) => {
 
 export const fetchFeeds = async (feedId?: string) => {
     try {
-        validateFeeds(feedlist);
+        validateFeeds(FeedList);
 
         const result = feedId ? (
-            [feedlist.find((feed) => feed.id === feedId)]
+            [FeedList.find((feed) => feed.id === feedId)]
         ) : (
-            feedlist
+            FeedList
         );
 
         return (
