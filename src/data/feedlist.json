@@ -242,5 +242,29 @@
   {
     "id": "48ef05f3-e3a3-4d8e-829c-f226f37336b5",
     "url": "https://bored.horse/feed.xml"
+  },
+  {
+    "id": "5cf64064-b831-4d7b-975a-dfacde9a9561",
+    "url": "https://thinkdobecreate.com/feed/"
+  },
+  {
+    "id": "38284d4a-9f56-459d-83b9-56a570cee048",
+    "url": "https://moderncss.dev/feed/"
+  },
+  {
+    "id": "7c8c0684-8892-4277-8792-e25efa58197c",
+    "url": "https://smolcss.dev/feed/"
+  },
+  {
+    "id": "58a28bb0-97c0-4539-8d0d-16bdeb2fd3d4",
+    "url": "https://sarajoy.dev/rss.xml"
+  },
+  {
+    "id": "3f3be159-f24b-431f-a334-13810556a837",
+    "url": "https://www.alvar.dev/feed.xml"
+  },
+  {
+    "id": "d3914b16-f5f5-4ce4-9b1d-19981a54b0e4",
+    "url": "https://cybercultural.com/feed.xml"
   }
 ]
