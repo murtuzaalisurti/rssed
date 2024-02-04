@@ -8,18 +8,18 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prepare": "is-ci || husky install",
+    "prepare": "is-ci || husky",
     "commitlint": "commitlint --edit",
     "genuuid": "node -e \"console.log(require('crypto').randomUUID())\"",
     "add-feed": "node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/addFeed.ts"
   },
   "dependencies": {
-    "@astrojs/netlify": "^4.1.0",
+    "@astrojs/netlify": "^5.0.1",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource-variable/rubik": "^5.0.20",
-    "@netlify/functions": "^2.4.1",
-    "@types/node": "^20.10.8",
-    "astro": "^4.1.1",
+    "@netlify/functions": "^2.5.1",
+    "@types/node": "^20.11.16",
+    "astro": "^4.3.2",
     "consola": "^3.2.3",
     "dayjs": "^1.11.10",
     "is-ci": "^3.0.1",
@@ -28,10 +28,10 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
     "@types/prompts": "^2.4.9",
-    "husky": "^8.0.3",
+    "husky": "^9.0.10",
     "ts-node": "^10.9.2"
   }
 }
