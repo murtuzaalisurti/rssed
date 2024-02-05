@@ -266,5 +266,21 @@
   {
     "id": "d3914b16-f5f5-4ce4-9b1d-19981a54b0e4",
     "url": "https://cybercultural.com/feed.xml"
+  },
+  {
+    "id": "15a36827-2746-46e1-a0a7-c7fe4964f849",
+    "url": "https://textslashplain.com/feed/"
+  },
+  {
+    "id": "44b61991-6cc2-4b79-b75d-57a7646d9f07",
+    "url": "https://gomakethings.com/feed/index.xml"
+  },
+  {
+    "id": "896b2ae2-e8ef-4f76-b35c-16e85f7af604",
+    "url": "https://blog.r0b.io/feed.xml"
+  },
+  {
+    "id": "71b553f7-23d3-48ee-911d-98d99cc70b1d",
+    "url": "https://pudding.cool/rss.xml"
   }
 ]
