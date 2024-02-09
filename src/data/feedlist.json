@@ -282,5 +282,9 @@
   {
     "id": "71b553f7-23d3-48ee-911d-98d99cc70b1d",
     "url": "https://pudding.cool/rss.xml"
+  },
+  {
+    "id": "e6eb90d6-4125-4ef2-8f10-b864842f991a",
+    "url": "https://vyckes.dev/feed/feed.xml"
   }
 ]
