@@ -14,12 +14,12 @@
     "add-feed": "node --no-warnings=ExperimentalWarning --loader ts-node/esm scripts/addFeed.ts"
   },
   "dependencies": {
-    "@astrojs/netlify": "^5.0.1",
+    "@astrojs/netlify": "^5.1.2",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource-variable/rubik": "^5.0.20",
-    "@netlify/functions": "^2.5.1",
-    "@types/node": "^20.11.16",
-    "astro": "^4.3.2",
+    "@netlify/functions": "^2.6.0",
+    "@types/node": "^20.11.19",
+    "astro": "^4.4.0",
     "consola": "^3.2.3",
     "dayjs": "^1.11.10",
     "is-ci": "^3.0.1",
@@ -28,10 +28,10 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
     "@types/prompts": "^2.4.9",
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "ts-node": "^10.9.2"
   }
 }
