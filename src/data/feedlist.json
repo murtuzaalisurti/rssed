@@ -294,5 +294,13 @@
   {
     "id": "a45aaca1-c15d-4155-8949-e6f7c98e57b3",
     "url": "https://www.webstoemp.com/feed.xml"
+  },
+  {
+    "id": "233b46c0-6579-4bd9-bf44-9dd9b324e3d3",
+    "url": "https://simonhearne.com/feed/feed.xml"
+  },
+  {
+    "id": "6b9d8e1e-df39-4673-a597-0b11ab4c4b23",
+    "url": "https://feeds.feedburner.com/csswizardry"
   }
 ]
