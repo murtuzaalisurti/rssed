@@ -18,7 +18,6 @@
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource-variable/rubik": "^5.0.20",
     "@netlify/functions": "^2.6.0",
-    "@types/node": "^20.11.24",
     "astro": "^4.4.6",
     "consola": "^3.2.3",
     "dayjs": "^1.11.10",
@@ -28,6 +27,7 @@
     "rss-parser": "^3.13.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.24",
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "@types/prompts": "^2.4.9",
