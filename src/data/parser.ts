@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { logger } from "../lib/logger";
 import { colors } from "consola/utils";
 
-type feedItem = Output<{ [key: string]: any }> & { id: string };
+type feedItem = Output<{ [key: string]: any }> & { id: string, lastBuildDate?: string };
 
 const feeds: {
     time: string | null

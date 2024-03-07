@@ -18,26 +18,21 @@ feeds = await allFeeds(data)
 const feedsToSort = feeds.filter(f => {
     return (f.items.length !== 0 && f.title !== 'Syntackle')
 }).map(feed => {
-    feed.items.sort((a, b) => {
-        // @ts-ignore
-        return new Date(b.pubDate) - new Date(a.pubDate)
+    feed.items.sort((a: Record<string, any>, b: Record<string, any>) => {
+        return (new Date(b.pubDate) as unknown as number) - (new Date(a.pubDate) as unknown as number)
     })
     return feed
 })
 
 feedsToSort.sort((a, b) => {
-    // @ts-ignore
-    const lastUpdatedA = a.items.length !== 0 ? a.items[0].pubDate : a.lastBuildDate
-    // @ts-ignore
-    const lastUpdatedB = b.items.length !== 0 ? b.items[0].pubDate : b.lastBuildDate
-    // @ts-ignore
-    return new Date(lastUpdatedB) - new Date(lastUpdatedA);
+    const lastUpdatedA = (a.items.length !== 0 ? a.items[0].pubDate : a.lastBuildDate) as string
+    const lastUpdatedB = (b.items.length !== 0 ? b.items[0].pubDate : b.lastBuildDate) as string
+    return (new Date(lastUpdatedB) as unknown as number) - (new Date(lastUpdatedA) as unknown as number);
 })
 
 feeds = [
     ...feeds.filter(f => f.title === 'Syntackle'),
     ...feedsToSort,
-    // @ts-ignore
     ...feeds.filter(f => (f.items.length === 0))
 ]
 
@@ -47,8 +42,7 @@ feeds = [
     <div id="feed_list">
         {
             feeds ? feeds?.map((feed) => {
-                // @ts-ignore
-                const lastUpdated = feed.items.length !== 0 ? feed.items[0].pubDate : feed.lastBuildDate;
+                const lastUpdated = (feed.items.length !== 0 ? feed.items[0].pubDate : feed.lastBuildDate) as string;
                 return (
                     <div class="feed" data-items={`${feed.items.length !== 0}`} data-last-published={new Date(lastUpdated)} data-feed-id={feed.id}>
                         <h2>
