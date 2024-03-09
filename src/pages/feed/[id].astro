@@ -53,14 +53,14 @@ export async function getStaticPaths() {
 }
 
 const { feeds } = Astro.props;
+feeds[0].items.sort((a: Record<string, any>, b: Record<string, any>) => {
+    return (new Date(b.pubDate) as unknown as number) - (new Date(a.pubDate) as unknown as number);
+});
 const lastUpdated =
     feeds[0].items.length !== 0
         ? feeds[0].items[0].pubDate
         : feeds[0].lastBuildDate;
 
-feeds[0].items.sort((a: Record<string, any>, b: Record<string, any>) => {
-    return (new Date(b.pubDate) as unknown as number) - (new Date(a.pubDate) as unknown as number);
-})
 ---
 
 <Layout title=`Feed - ${feeds[0].title} - rssed`>
