@@ -210,42 +210,6 @@ const { title } = Astro.props;
     h3 {
         font-size: 1.35rem;
     }
-
-    /* feed list */
-    #feed_list {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 2rem;
-    }
-    .feed {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1.5rem;
-        border: 0.3rem solid rgba(201, 125, 96, 0.3);
-        border-radius: 1rem;
-
-    }
-    .feed_banner::before {
-        position: absolute;
-        content: '• new •';
-        right: 0.3rem;
-        top: 0.3rem;
-        width: fit-content;
-        padding: 0.2rem 0.5rem;
-        font-size: 0.7rem;
-        border: 0.1rem solid rgba(201, 125, 96, 0.3);
-        background: rgba(201, 125, 96, 0.3);
-        border-radius: 0.5rem;
-    }
-    time {
-        opacity: 0.9;
-        font-style: italic;
-        font-size: 0.75rem;
-        padding: 1rem 0 0 0;
-    }
 </style>
 
 <style>

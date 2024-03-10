@@ -94,6 +94,43 @@ feeds = [
     <button id="more">show more</button>
 </Layout>
 
+<style>
+    #feed_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .feed {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1.5rem;
+        border: 0.3rem solid rgba(201, 125, 96, 0.3);
+        border-radius: 1rem;
+
+    }
+    .feed_banner::before {
+        position: absolute;
+        content: '• new •';
+        right: 0.3rem;
+        top: 0.3rem;
+        width: fit-content;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.7rem;
+        border: 0.1rem solid rgba(201, 125, 96, 0.3);
+        background: rgba(201, 125, 96, 0.3);
+        border-radius: 0.5rem;
+    }
+    time {
+        opacity: 0.9;
+        font-style: italic;
+        font-size: 0.75rem;
+        padding: 1rem 0 0 0;
+    }
+</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.feed').forEach(e => {
@@ -132,17 +169,17 @@ feeds = [
         })
     });
 
-    function populateTemplate({ id, link, title, dataItems, dataLastPublished, lastUpdatedLocaleDateString, sinceLastUpdate }: Record<string, any>) {
+    function populateTemplate({ id, link, title, dataItems, dataLastPublished, lastUpdatedLocaleDateString, sinceLastUpdate }: Record<string, any>, astroComponentDataAttributes: string[]) {
         return String.raw`
-            <div class="feed" data-items=${dataItems} data-last-published="${dataLastPublished}" data-feed-id="${id}">
-                <h2>
+            <div class="feed" data-items=${dataItems} data-last-published="${dataLastPublished}" data-feed-id="${id}" ${astroComponentDataAttributes[0]}>
+                <h2 ${astroComponentDataAttributes[0]}>
                     <a href="/feed/${id}">${title}</a>
                 </h2>
-                <p>${link}</p>
+                <p ${astroComponentDataAttributes[0]}>${link}</p>
                 ${
-                    title === "Syntackle" ? "<p>shameless promotion &#10085;</p>" : ""
+                    title === "Syntackle" ? `<p ${astroComponentDataAttributes[0]}>shameless promotion &#10085;</p>` : ""
                 }
-                <time datetime="${lastUpdatedLocaleDateString}">
+                <time ${astroComponentDataAttributes[0]} datetime="${lastUpdatedLocaleDateString}">
                     ${
                         sinceLastUpdate
                     }
@@ -154,19 +191,17 @@ feeds = [
     (document.querySelector("#more") as HTMLButtonElement).addEventListener("click", () => {
         const feedListContainer = document.querySelector("#feed_list") as HTMLElement;
         const feedList = JSON.parse(feedListContainer.dataset.feedList as string);
-        console.log(feedList);
-
         const currentlyDisplayedFeedsLength = feedListContainer.children.length;
-        console.log(feedListContainer.children.length);
-
         const newFeeds = feedList?.slice(currentlyDisplayedFeedsLength, currentlyDisplayedFeedsLength + 10)
-        console.log(newFeeds);
+
+        const astroComponentDataAttributes = Object.keys((feedListContainer.firstElementChild as HTMLElement).dataset)
+            .filter(k => k.includes("astroCid"))
+            .map(attr => `data-${attr.slice(0, 5).toLowerCase()}-${attr.slice(5, 8).toLowerCase()}-${attr.slice(8)}` as string);
 
         for (const feed of newFeeds) {
-            const html = populateTemplate(feed);
+            const html = populateTemplate(feed, astroComponentDataAttributes);
             const node = new DOMParser().parseFromString(html, "text/html").body.innerHTML;
             feedListContainer.insertAdjacentHTML("beforeend", node);
         }
-        // populateTemplate(newFeeds);
     })
 </script>
