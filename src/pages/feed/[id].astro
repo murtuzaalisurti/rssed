@@ -3,6 +3,11 @@ import Layout from "../../layouts/Layout.astro";
 import { allFeeds } from "../../data/parser";
 import { fetchFeeds } from "../../lib/api/fetchFeeds";
 
+import dayjs from "dayjs";
+import LocalizedFormat from "dayjs/plugin/localizedFormat";
+
+dayjs.extend(LocalizedFormat);
+
 export async function getStaticPaths() {
     try {
         const res = await fetchFeeds();
@@ -83,10 +88,22 @@ const lastUpdated =
                         return (
                             <div class="post">
                                 <h3>
-                                    <a href={item.link} target="_blank" rel="noopener noreferrer">
-                                        {item.title}
-                                    </a>
-                                    {` 🔗`}
+                                    {
+                                        item.title ? (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                {item.title}
+                                            </a>
+                                            <>
+                                                🔗
+                                            </>
+                                        ) : (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                                {
+                                                    dayjs(item.pubDate).format('LLL')
+                                                }
+                                            </a>
+                                        )
+                                    }
                                 </h3>
                                 {description && (
                                     <p>
