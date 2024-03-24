@@ -91,7 +91,7 @@ feeds = [
             )
         }
     </div>
-    <button id="more">show more</button>
+    <span id="intersection_target" style="visibility: hidden; display: block; width: 100%; margin: 2rem 0; padding: 0.5rem;"></span>
 </Layout>
 
 <style>
@@ -132,46 +132,49 @@ feeds = [
 </style>
 
 <script>
+    function setReadUnreadBanner(e: HTMLElement) {
+        const ele = e as HTMLElement;
+        const feedId = ele.dataset.feedId as string;
+        const lastPublishedTime = new Date(`${ele.dataset.lastPublished}`).getTime();
+    
+        if (!localStorage.getItem(feedId)) {
+    
+            localStorage.setItem(feedId, JSON.stringify({
+                read: true,
+                timestamp: lastPublishedTime
+            }));
+    
+            ele.classList.remove('feed_banner');
+    
+        } else {
+    
+            const prevPostLogRead = JSON.parse(localStorage.getItem(feedId) as string);
+            const loggedPublishTime = Number(prevPostLogRead.timestamp);
+    
+            if (!((lastPublishedTime - loggedPublishTime) <= 0)) {
+    
+                const newPostLogUnread = {
+                    ...prevPostLogRead,
+                    read: false
+                }
+                localStorage.setItem(feedId, JSON.stringify(newPostLogUnread));
+    
+                ele.dataset.items === 'true' && ele.classList.add('feed_banner');
+            } else {
+                const read = JSON.parse(localStorage.getItem(feedId) as string).read;
+                read && ele.classList.remove('feed_banner');
+            }
+        }
+    }
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.feed').forEach(e => {
-            const ele = e as HTMLElement;
-            const feedId = ele.dataset.feedId as string;
-            const lastPublishedTime = new Date(`${ele.dataset.lastPublished}`).getTime();
-
-            if (!localStorage.getItem(feedId)) {
-
-                localStorage.setItem(feedId, JSON.stringify({
-                    read: true,
-                    timestamp: lastPublishedTime
-                }));
-
-                ele.classList.remove('feed_banner');
-
-            } else {
-
-                const prevPostLogRead = JSON.parse(localStorage.getItem(feedId) as string);
-                const loggedPublishTime = Number(prevPostLogRead.timestamp);
-
-                if (!((lastPublishedTime - loggedPublishTime) <= 0)) {
-
-                    const newPostLogUnread = {
-                        ...prevPostLogRead,
-                        read: false
-                    }
-                    localStorage.setItem(feedId, JSON.stringify(newPostLogUnread));
-
-                    ele.dataset.items === 'true' && ele.classList.add('feed_banner');
-                } else {
-                    const read = JSON.parse(localStorage.getItem(feedId) as string).read;
-                    read && ele.classList.remove('feed_banner');
-                }
-            }
-        })
+            setReadUnreadBanner(e as HTMLElement);
+        });
     });
 
     function populateTemplate({ id, link, title, dataItems, dataLastPublished, lastUpdatedLocaleDateString, sinceLastUpdate }: Record<string, any>, astroComponentDataAttributes: string[]) {
         return String.raw`
-            <div class="feed" data-items=${dataItems} data-last-published="${dataLastPublished}" data-feed-id="${id}" ${astroComponentDataAttributes[0]}>
+            <div class="feed lazy" data-items=${dataItems} data-last-published="${dataLastPublished}" data-feed-id="${id}" ${astroComponentDataAttributes[0]}>
                 <h2 ${astroComponentDataAttributes[0]}>
                     <a href="/feed/${id}">${title}</a>
                 </h2>
@@ -188,20 +191,33 @@ feeds = [
         `
     }
 
-    (document.querySelector("#more") as HTMLButtonElement).addEventListener("click", () => {
+    function loadLazyFeedsIncrementally() {
         const feedListContainer = document.querySelector("#feed_list") as HTMLElement;
         const feedList = JSON.parse(feedListContainer.dataset.feedList as string);
         const currentlyDisplayedFeedsLength = feedListContainer.children.length;
         const newFeeds = feedList?.slice(currentlyDisplayedFeedsLength, currentlyDisplayedFeedsLength + 10)
-
+    
         const astroComponentDataAttributes = Object.keys((feedListContainer.firstElementChild as HTMLElement).dataset)
             .filter(k => k.includes("astroCid"))
             .map(attr => `data-${attr.slice(0, 5).toLowerCase()}-${attr.slice(5, 8).toLowerCase()}-${attr.slice(8)}` as string);
-
+    
         for (const feed of newFeeds) {
             const html = populateTemplate(feed, astroComponentDataAttributes);
             const node = new DOMParser().parseFromString(html, "text/html").body.innerHTML;
             feedListContainer.insertAdjacentHTML("beforeend", node);
         }
-    })
+    
+        document.querySelectorAll(".feed").forEach(e => {
+            if (e.classList.contains("lazy")) {
+                setReadUnreadBanner(e as HTMLElement);
+            }
+        })
+    }
+
+    const observer = new IntersectionObserver(loadLazyFeedsIncrementally, {
+        threshold: 1
+    });
+
+    const target = document.querySelector("#intersection_target") as HTMLElement;
+    observer.observe(target);
 </script>
