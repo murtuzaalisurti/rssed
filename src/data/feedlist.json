@@ -730,5 +730,17 @@
   {
     "id": "01949c8a-dccf-776b-96ec-112e3043cb49",
     "url": "https://infrequently.org/feed/"
+  },
+  {
+    "id": "019538e1-ba9a-72b8-9947-da401bad412a",
+    "url": "https://www.pzuraq.com/rss"
+  },
+  {
+    "id": "019538e1-ba9d-70bc-aa2e-196c9d9a811c",
+    "url": "https://nmn.gl/blog/feed.xml"
+  },
+  {
+    "id": "019538e1-ba9d-70bc-aa2e-1cad6cec53d5",
+    "url": "https://mark.ie/planet/feed.xml"
   }
 ]
