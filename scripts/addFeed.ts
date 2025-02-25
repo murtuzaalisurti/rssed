@@ -3,6 +3,7 @@ import { v7 } from 'uuid';
 import prompts, { type PromptObject } from 'prompts'
 import { logger } from '../src/lib/logger.ts'
 import { validateFeeds } from '../src/lib/api/fetchFeeds.ts'
+import { tryCatch } from '../src/lib/utils/try-catch.ts';
 
 interface Feed {
     id: string
@@ -18,8 +19,8 @@ const readFeedList = () => {
     return feedlist;
 }
 
-const writeUpdatedFeedList = (updatedFeedList: Feed[]) => {
-    logger.start(`Writing ${url.length} feed(s) to feedlist.json...`)
+const writeUpdatedFeedList = (updatedFeedList: Feed[], urls: string[]) => {
+    logger.start(`Writing ${urls.length} feed(s) to feedlist.json...`)
 
     fs.writeFileSync(
         "./src/data/feedlist.json",
@@ -37,6 +38,18 @@ const writeUpdatedFeedList = (updatedFeedList: Feed[]) => {
 const updatedFeeds = (feeds: Feed[], urls: string[]) =>
     feeds.concat(urls.map(url => ({ id: v7(), url })));
 
+const validatingFeeds = (urls: string[]) => {
+    logger.start(`Validating ${urls.length} feed(s)...`)
+    const feedList = readFeedList()
+    const updatedFeedList = updatedFeeds(feedList, urls)
+
+    validateFeeds(updatedFeedList)
+
+    logger.success(`Validated ${urls.length} feed(s), ready to be added to feedlist.json`)
+
+    return updatedFeedList
+}
+
 async function ask() {
     const askPrompts: PromptObject<string>[] = [
         {
@@ -51,15 +64,24 @@ async function ask() {
     return await prompts(askPrompts, { onCancel })
 }
 
-const feedlist = readFeedList()
-const { url } = await ask()
-const updatedFeedList = updatedFeeds(feedlist, url)
 
-logger.start(`Validating ${url.length} feed(s)...`)
-validateFeeds(updatedFeedList)
-logger.success(`Validated ${url.length} feed(s), ready to be added to feedlist.json`)
+async function run() {
+    const { url: urls } = await ask()
 
-if (!args.find(arg => arg === "dry")) {
-    writeUpdatedFeedList(updatedFeedList)
-    logger.success(`Added feed(s): \n\t- ${url.join("\n\t- ")}`)
+    const updatedFeedList = validatingFeeds(urls)
+    
+    if (!args.find(arg => arg === "dry")) {
+        writeUpdatedFeedList(updatedFeedList, urls)
+    }
+
+    return urls
 }
+
+tryCatch<string[]>(run())
+    .then(({ data, error }) => {
+        if (error) {
+            return logger.error(error.message)
+        }
+
+        logger.success(`Added feed(s): \n\t- ${data.join("\n\t- ")}`)
+    })
