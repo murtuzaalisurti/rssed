@@ -742,5 +742,21 @@
   {
     "id": "019538e1-ba9d-70bc-aa2e-1cad6cec53d5",
     "url": "https://mark.ie/planet/feed.xml"
+  },
+  {
+    "id": "0195ebc8-26a7-710c-bb1b-e2fadc1f0c36",
+    "url": "https://github.blog/feed/"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-65076cef673e",
+    "url": "https://sebastianraschka.com/rss_feed.xml"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-68e7a34bbffb",
+    "url": "https://css-tip.com/feed/feed.xml"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-6db446859021",
+    "url": "https://hypertextgarden.com/feed"
   }
 ]
