@@ -22,3 +22,5 @@ export async function tryCatch<T, E = Error>(
         return { data: null, error: error as E };
     }
 }
+
+// better implementation - https://claude.ai/share/49870e5c-e831-40f4-9610-910832efd15a
