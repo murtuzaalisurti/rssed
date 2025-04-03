@@ -137,7 +137,6 @@ const { title, totalFeedCount } = Astro.props;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        content-visibility: auto;
     }
 
     :root {
@@ -293,6 +292,10 @@ const { title, totalFeedCount } = Astro.props;
         fill: none;
         scale: 1.35;
         transform: translateY(-2%);
+    }
+
+    #feed_list {
+        content-visibility: auto;
     }
 </style>
 
