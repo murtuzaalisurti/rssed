@@ -47,10 +47,17 @@ export const validateFeeds = (feedlist: { id: string, url: string }[]) => {
     /**
      * ? feedlist having hostname extracted from the url for duplication check
      */
-    const feedListWithOnlyHostname = feedlist.map(feed => ({
-        id: feed.id,
-        url: `${new URL(feed.url).hostname}${new URL(feed.url).pathname}`
-    }))
+    const feedListWithOnlyHostname = feedlist.map(feed => {
+        const hostname = new URL(feed.url).hostname;
+        const pathname = new URL(feed.url).pathname;
+        const parsedHostname = hostname.replace(/^www\./, '');
+
+        return {
+            id: feed.id,
+            url: `${parsedHostname}${pathname}`
+        }
+    });
+
     const hasDuplicateIDs = hasDuplicate(feedListWithOnlyHostname, "id")
     const hasDuplicateURLs = hasDuplicate(feedListWithOnlyHostname, "url")
 
