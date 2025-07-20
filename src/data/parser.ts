@@ -2,6 +2,8 @@ import Parser, { type Output } from "rss-parser";
 import dayjs from "dayjs";
 import { logger } from "../lib/logger";
 import { colors } from "consola/utils";
+import http from "http";
+import https from "https";
 
 type feedItem = Output<{ [key: string]: any }> & { id: string, lastBuildDate?: string };
 
@@ -31,8 +33,23 @@ export const ParseRSS = async (url: string) => {
 const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
     logger.start("Fetching feeds...\n")
 
+    let activeRequests = 0;
+    let maxConcurrentRequests = 0;
+    let completedRequests = 0;
+
+    const logConcurrency = () => {
+        const httpSockets = Object.keys(http.globalAgent.sockets).length;
+        const httpsSockets = Object.keys(https.globalAgent.sockets).length;
+        logger.info(`Active promises: ${activeRequests}/${list.length} | HTTP sockets: ${httpSockets} | HTTPS sockets: ${httpsSockets}`);
+    };
+
     const feedPromises = list.map(async (site) => {
+        activeRequests++;
+        maxConcurrentRequests = Math.max(maxConcurrentRequests, activeRequests);
+
         console.time(`${site.url}`)
+        logConcurrency();
+
         try {
             let feed: feedItem;
             if (!feeds.items.some(i => i.id === site.id)) {
@@ -56,6 +73,12 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
             });
             brokenFeedErrorMessageRegex.test((error as Error).message) && brokenFeeds.push({ id: site.id, url: site.url });
             console.timeEnd(`${site.url}`);
+        } finally {
+            activeRequests--;
+            completedRequests++;
+            if (completedRequests % 5 === 0 || completedRequests === list.length) {
+                logConcurrency();
+            }
         }
     })
 
@@ -67,6 +90,8 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
         )
     }
 
+    logger.info(`Peak concurrency: ${maxConcurrentRequests} simultaneous requests`);
+    
     const fetchedFeedsLog = `Fetched ${feeds.items.length} feeds successfully out of ${list.length} feeds!`
     logger.ready(`${feeds.items.length === list.length ? colors.green(fetchedFeedsLog) : colors.yellow(fetchedFeedsLog)}`)
 
