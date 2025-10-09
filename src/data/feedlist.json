@@ -818,5 +818,9 @@
   {
     "id": "0199c8bc-8163-735e-858f-2745afcc0148",
     "url": "https://feeds.feedburner.com/codyhouse/feeds"
+  },
+  {
+    "id": "0199c8bf-7f46-757b-a4bd-373fc654f22b",
+    "url": "https://web.dev/feed.xml"
   }
 ]
