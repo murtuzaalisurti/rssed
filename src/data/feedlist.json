@@ -822,5 +822,9 @@
   {
     "id": "0199c8bf-7f46-757b-a4bd-373fc654f22b",
     "url": "https://web.dev/feed.xml"
+  },
+  {
+    "id": "0199c8c2-29f2-7279-879f-da70547c7260",
+    "url": "https://addyosmani.com/rss.xml"
   }
 ]
