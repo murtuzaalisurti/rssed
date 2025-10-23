@@ -838,5 +838,21 @@
   {
     "id": "0199f25d-62ba-71cb-bd2d-e816b6584c52",
     "url": "https://nadh.in/index.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e0194ae7444c",
+    "url": "https://jeffbridgforth.com/feed/"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e72b105b807f",
+    "url": "https://paperclover.net/rss.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e8c71484eac5",
+    "url": "https://stack.convex.dev/rss/feed.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-ee5229d704e2",
+    "url": "https://www.developerway.com/rss.xml"
   }
 ]
