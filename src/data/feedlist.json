@@ -858,5 +858,49 @@
   {
     "id": "019a0ff2-ffd3-7204-9fd1-2f5afdca346f",
     "url": "https://goulven-clech.dev/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93b7-778c-b331-33946671ccdb",
+    "url": "https://www.ahmadosman.com/index.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-c4c90038b587",
+    "url": "https://ellie.wtf/index.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-c8ec195ff15f",
+    "url": "https://terminal.ahumanfuture.co/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-cf8d78b24350",
+    "url": "https://www.rockyourcode.com/index.xml/"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d19da0183316",
+    "url": "https://bricolage.io/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d65051624b86",
+    "url": "https://frappe.io/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d8621f310c1a",
+    "url": "https://baskar.dev/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-dd184e9f021f",
+    "url": "https://fragmentsofcode.substack.com/feed"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e3b12e4b6f54",
+    "url": "https://spiess.dev/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e7a6d095a57d",
+    "url": "https://sergiodxa.com/rss"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e824d0bd92ee",
+    "url": "https://endler.dev/rss.xml"
   }
 ]
