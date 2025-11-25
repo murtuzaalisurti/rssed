@@ -902,5 +902,29 @@
   {
     "id": "019a3e5f-93bd-774a-9112-e824d0bd92ee",
     "url": "https://endler.dev/rss.xml"
+  },
+  {
+    "id": "019ab9e0-26e1-746f-bdb0-3ad170c42f60",
+    "url": "https://blog.stevensanderson.com/feed/"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-7f8f0e9ba7ea",
+    "url": "https://mcyoung.xyz/feed"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-82f1cf73e969",
+    "url": "https://thorstenball.com/atom.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-87eaece1530b",
+    "url": "https://matklad.github.io/feed.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-8b3bbd20eac8",
+    "url": "https://notes.eatonphil.com/rss.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-8e781ba0fc8b",
+    "url": "https://avi.im/blag/index.xml"
   }
 ]
