@@ -16,6 +16,14 @@ async function run() {
         }
 
         const issue = context.payload.issue;
+
+        // Check for the 'verify' label
+        const hasVerifyLabel = issue.labels.some(label => label.name === 'verify');
+        if (!hasVerifyLabel) {
+            core.info('Issue does not have the "verify" label. Skipping.');
+            return;
+        }
+        
         const issueBody = issue.body || '';
         const { owner, repo } = context.repo;
         const issueNumber = issue.number;
