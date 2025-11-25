@@ -1,0 +1,26 @@
+name: 'Add Feeds from Issue'
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  add-feeds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v4
+
+      - name: 'Set up Node.js'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: 'Install dependencies'
+        run: npm install
+
+      - name: 'Run the add-feeds script'
+        run: node src/scripts/verifyAndAddFeedsViaGitHubActions.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
