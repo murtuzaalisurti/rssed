@@ -6,6 +6,7 @@ import { v7 as uuidv7 } from 'uuid';
 async function run() {
     try {
         const token = core.getInput('github-token', { required: true });
+        console.log('GitHub token acquired.', token);
         const octokit = github.getOctokit(token);
         const context = github.context;
 
@@ -23,7 +24,7 @@ async function run() {
             core.info('Issue does not have the "verify" label. Skipping.');
             return;
         }
-        
+
         const issueBody = issue.body || '';
         const { owner, repo } = context.repo;
         const issueNumber = issue.number;
