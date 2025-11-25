@@ -6,7 +6,7 @@ import { v7 as uuidv7 } from 'uuid';
 async function run() {
     try {
         console.log('Starting the feed verification and addition process...');
-        const token = core.getInput('github-token');
+        const token = process.env.GITHUB_TOKEN;
         console.log('GitHub token acquired.', token);
         const octokit = github.getOctokit(token);
         const context = github.context;
