@@ -108,7 +108,7 @@ async function run() {
 
         // 5. Create a new branch, commit the updated file, and open a PR
         const newBranchName = `feat/add-feeds-issue-${issueNumber}`;
-        const mainBranch = await octokit.rest.repos.getBranch({ owner, repo, branch: 'main' });
+        const mainBranch = await octokit.rest.repos.getBranch({ owner, repo, branch: 'netlify' });
         const mainBranchSha = mainBranch.data.commit.sha;
 
         await octokit.rest.git.createRef({
