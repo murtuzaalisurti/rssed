@@ -19,6 +19,11 @@ jobs:
 
       - name: 'Install dependencies'
         run: npm install
+    
+      - name: 'Debug file structure'
+        run: |
+          pwd
+          ls -R
 
       - name: 'Run the add-feeds script'
         run: node src/scripts/verifyAndAddFeedsViaGitHubActions.js
