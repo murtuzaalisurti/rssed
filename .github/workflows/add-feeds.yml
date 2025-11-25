@@ -26,6 +26,6 @@ jobs:
           ls -R
 
       - name: 'Run the add-feeds script'
-        run: node src/scripts/verifyAndAddFeedsViaGitHubActions.js
+        run: node scripts/verifyAndAddFeedsViaGitHubActions.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
