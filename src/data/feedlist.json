@@ -1,0 +1,934 @@
+[
+  {
+    "id": "2fdc9d37-2958-4fb6-8fb2-1e27f2f3ceb1",
+    "url": "https://syntackle.com/feed.xml"
+  },
+  {
+    "id": "1037d0fe-ae0d-48de-9681-916fcff1b881",
+    "url": "https://www.zachleat.com/web/feed/"
+  },
+  {
+    "id": "d091706a-35e5-4338-b624-354c971595d5",
+    "url": "https://benmyers.dev/feed.xml"
+  },
+  {
+    "id": "52273f08-379d-4246-b205-5e94f002732a",
+    "url": "https://andy-bell.co.uk/feed.xml"
+  },
+  {
+    "id": "e016bea4-1467-4a10-98a8-2ec5d502aae8",
+    "url": "https://darekkay.com/atom.xml"
+  },
+  {
+    "id": "6080b575-d897-4a0c-8be5-ed55510da3c6",
+    "url": "https://chriskirknielsen.com/rss.xml"
+  },
+  {
+    "id": "0d66e4e3-45fe-4ee6-b542-cbbc1922685d",
+    "url": "https://www.ellyloel.com/feed.rss"
+  },
+  {
+    "id": "3997b83c-02f8-4966-bb5f-59aa828246db",
+    "url": "https://robinrendle.com/cascadefeed.xml"
+  },
+  {
+    "id": "076ecfd1-7feb-484e-b60c-7f7b0905615f",
+    "url": "https://tylergaw.com/rss.xml"
+  },
+  {
+    "id": "3d50b5ad-ee77-4d67-8b9b-005fc0690bf7",
+    "url": "https://chriscoyier.net/feed/"
+  },
+  {
+    "id": "9fd85998-b13d-466b-9607-674ac292a75d",
+    "url": "https://www.wagslane.dev/index.xml"
+  },
+  {
+    "id": "d696bc40-c51e-4ff0-aa0a-85281ccf0540",
+    "url": "https://adrianroselli.com/feed"
+  },
+  {
+    "id": "56e14657-0595-4b21-9345-dafc8540b107",
+    "url": "https://maggieappleton.com/rss.xml"
+  },
+  {
+    "id": "b5061a27-213b-43fe-b1e2-7658eebedb58",
+    "url": "https://2019.wattenberger.com/rss"
+  },
+  {
+    "id": "af5165e2-d8f8-4afa-b3ac-1a17d4cfc4a7",
+    "url": "https://lea.verou.me/feed.xml"
+  },
+  {
+    "id": "161a3cf1-c9f2-41ee-a487-1217e75f9525",
+    "url": "https://philna.sh/feed.xml"
+  },
+  {
+    "id": "a0cc96d7-dd76-4d57-b318-1a28fd5c92b7",
+    "url": "https://www.joshwcomeau.com/rss.xml"
+  },
+  {
+    "id": "68a64df1-75cd-4739-b5d6-547db22b233b",
+    "url": "https://rknight.me/feed.xml"
+  },
+  {
+    "id": "dde326ee-03c9-460f-83c8-aaf0d43b20ad",
+    "url": "https://whitep4nth3r.com/feed.xml"
+  },
+  {
+    "id": "12b9aede-1eeb-4e23-a213-24badbd9ecc6",
+    "url": "https://conr.dev/feed/feed.xml"
+  },
+  {
+    "id": "90093ecf-8260-439a-a1c1-1129e55cf30b",
+    "url": "https://daverupert.com/atom.xml"
+  },
+  {
+    "id": "d9807ca9-dce8-49f8-a05c-ebbcc10d4b6f",
+    "url": "https://scottjehl.com/feed.xml"
+  },
+  {
+    "id": "1b5844ad-d767-45ff-a7f6-f3a5d8879a54",
+    "url": "https://una.im/rss.xml"
+  },
+  {
+    "id": "62475325-8448-420a-b652-08c784554513",
+    "url": "https://blog.jim-nielsen.com/feed.xml"
+  },
+  {
+    "id": "f1db794a-096c-4e22-9b8c-8ac91c6aaf2a",
+    "url": "https://www.htmhell.dev/feed.xml"
+  },
+  {
+    "id": "69e4f553-efea-4428-bad3-cad21f8f0cae",
+    "url": "https://www.htmhell.dev/feed_advent.xml"
+  },
+  {
+    "id": "25496240-9cbc-42a6-88a3-447ec883ddec",
+    "url": "https://zoeaubert.me/rss.xml"
+  },
+  {
+    "id": "10fc3a82-6c59-4961-adac-5c4227822434",
+    "url": "https://ishadeed.com/feed.xml"
+  },
+  {
+    "id": "c8926f0d-e358-4df8-8585-45d4b75a3108",
+    "url": "https://lewisdale.dev/feed/"
+  },
+  {
+    "id": "017bddb8-464c-4d09-84f8-540559688d01",
+    "url": "https://www.arp242.net/feed.xml"
+  },
+  {
+    "id": "fbdcf726-2b91-449c-9dc7-37a989d1175d",
+    "url": "https://surma.dev/index.xml"
+  },
+  {
+    "id": "474218f4-a1de-48d8-bcb3-2d8e34d4ef8c",
+    "url": "https://blakewatson.com/feed/"
+  },
+  {
+    "id": "a2da79ca-87df-4308-a006-2c0234607d67",
+    "url": "https://tbeseda.com/blog/rss"
+  },
+  {
+    "id": "5e01e6fb-1ab1-4241-82d8-edfb2218c425",
+    "url": "https://stevenwoodson.com/feed/feed.xml"
+  },
+  {
+    "id": "aa0a943a-44a4-42a6-8233-63cfbaccce4f",
+    "url": "https://www.builder.io/blog/feed.xml"
+  },
+  {
+    "id": "6f478beb-9202-4a52-a325-3765549de0cc",
+    "url": "https://thenewstack.io/blog/feed/"
+  },
+  {
+    "id": "b51827d7-8698-44cf-afd4-b08b7db56288",
+    "url": "https://jamesdoc.com/blog/feed.xml"
+  },
+  {
+    "id": "d61d14ac-c6fa-4456-bc49-187b430fef89",
+    "url": "https://markentier.tech/feed.rss.xml"
+  },
+  {
+    "id": "728e6919-b41e-4078-a93a-dbf210ed6f3f",
+    "url": "https://feeds.feedburner.com/kizuruen"
+  },
+  {
+    "id": "8ff754fb-c0cf-403c-8be4-cc777a47a80c",
+    "url": "https://scotthelme.co.uk/rss/"
+  },
+  {
+    "id": "ee15bcb8-5830-4add-98a0-d62ff0726181",
+    "url": "https://www.falldowngoboone.com/feed/feed.xml"
+  },
+  {
+    "id": "9f03cfa1-a0c4-4eac-a95a-8aa20e0f76f5",
+    "url": "https://robbowen.digital/feed.xml"
+  },
+  {
+    "id": "66258f31-8d87-4ebd-bcfb-0b72629c2208",
+    "url": "https://www.mayank.co/blog/rss.xml"
+  },
+  {
+    "id": "a0e4adb7-b23d-4b36-a72e-52862e4befa5",
+    "url": "https://blog.otterlord.dev/rss.xml"
+  },
+  {
+    "id": "93389388-2a18-49ed-ab8e-087a238546e4",
+    "url": "https://nalanj.dev/index.xml"
+  },
+  {
+    "id": "18fe28c3-4b98-4d0d-a307-9186f6844663",
+    "url": "https://www.joelonsoftware.com/feed/"
+  },
+  {
+    "id": "96b4a353-a2ff-42a9-b186-c724b1b30443",
+    "url": "https://rachsmith.com/feed.xml"
+  },
+  {
+    "id": "89e1ab44-6abd-4536-98fd-82af683e8e1b",
+    "url": "https://nicolas-hoizey.com/feeds/articles.xml"
+  },
+  {
+    "id": "71c7bafd-f4c9-4243-88c3-0f0fdf2dd15b",
+    "url": "https://flaviocopes.com/rss.xml"
+  },
+  {
+    "id": "c79af50b-3e8d-4df0-a4b1-99af38805b56",
+    "url": "https://www.ericapisani.dev/blog/rss/"
+  },
+  {
+    "id": "b1612bcc-b690-4b6e-bfe4-087ce7c1ccc2",
+    "url": "https://blog.cassidoo.co/rss.xml"
+  },
+  {
+    "id": "a629a35a-6e7b-4f5d-baf9-02517f0e3280",
+    "url": "https://hashrocket.com/blog/posts.rss"
+  },
+  {
+    "id": "112c9f8c-5e97-4184-ba46-97e17d7503d7",
+    "url": "https://www.cassey.dev/feed/feed.xml"
+  },
+  {
+    "id": "62ea2eb2-a214-493f-a0c1-a23353529c6e",
+    "url": "https://www.stefanjudis.com/rss.xml"
+  },
+  {
+    "id": "5bb4eb0a-9af8-4d29-a386-ae3c96eac20f",
+    "url": "https://older-posts.simonplend.com/feed/"
+  },
+  {
+    "id": "08e19bcf-5e9b-491f-93ef-26e4578adfb9",
+    "url": "https://annadodson.co.uk/index.xml"
+  },
+  {
+    "id": "4c3d095f-c9af-4526-bad0-7e298ef7d942",
+    "url": "https://www.jvt.me/kind/articles/feed.xml"
+  },
+  {
+    "id": "87690ae8-b620-46ef-a44e-14db77c89261",
+    "url": "https://remysharp.com/feed.xml"
+  },
+  {
+    "id": "35e17f8e-a9d4-4a5a-8446-32a664731b2d",
+    "url": "https://adamj.eu/tech/atom.xml"
+  },
+  {
+    "id": "c1e3e1b8-3446-46fe-96ff-a93215c5b043",
+    "url": "https://piccalil.li/feed.xml"
+  },
+  {
+    "id": "48ef05f3-e3a3-4d8e-829c-f226f37336b5",
+    "url": "https://bored.horse/feed.xml"
+  },
+  {
+    "id": "5cf64064-b831-4d7b-975a-dfacde9a9561",
+    "url": "https://thinkdobecreate.com/feed/"
+  },
+  {
+    "id": "38284d4a-9f56-459d-83b9-56a570cee048",
+    "url": "https://moderncss.dev/feed/"
+  },
+  {
+    "id": "7c8c0684-8892-4277-8792-e25efa58197c",
+    "url": "https://smolcss.dev/feed/"
+  },
+  {
+    "id": "58a28bb0-97c0-4539-8d0d-16bdeb2fd3d4",
+    "url": "https://sarajoy.dev/rss.xml"
+  },
+  {
+    "id": "3f3be159-f24b-431f-a334-13810556a837",
+    "url": "https://www.alvar.dev/feed.xml"
+  },
+  {
+    "id": "d3914b16-f5f5-4ce4-9b1d-19981a54b0e4",
+    "url": "https://cybercultural.com/feed.xml"
+  },
+  {
+    "id": "15a36827-2746-46e1-a0a7-c7fe4964f849",
+    "url": "https://textslashplain.com/feed/"
+  },
+  {
+    "id": "44b61991-6cc2-4b79-b75d-57a7646d9f07",
+    "url": "https://gomakethings.com/feed/index.xml"
+  },
+  {
+    "id": "896b2ae2-e8ef-4f76-b35c-16e85f7af604",
+    "url": "https://blog.r0b.io/feed.xml"
+  },
+  {
+    "id": "71b553f7-23d3-48ee-911d-98d99cc70b1d",
+    "url": "https://pudding.cool/rss.xml"
+  },
+  {
+    "id": "e6eb90d6-4125-4ef2-8f10-b864842f991a",
+    "url": "https://crinkels.dev/feed/feed.xml"
+  },
+  {
+    "id": "2080d5f6-4e4f-4653-a70e-fe3627eee060",
+    "url": "https://www.sarasoueidan.com/blog/index.xml"
+  },
+  {
+    "id": "a45aaca1-c15d-4155-8949-e6f7c98e57b3",
+    "url": "https://www.webstoemp.com/feed.xml"
+  },
+  {
+    "id": "233b46c0-6579-4bd9-bf44-9dd9b324e3d3",
+    "url": "https://simonhearne.com/feed/feed.xml"
+  },
+  {
+    "id": "6b9d8e1e-df39-4673-a597-0b11ab4c4b23",
+    "url": "https://feeds.feedburner.com/csswizardry"
+  },
+  {
+    "id": "7ccea9a4-98d4-472c-80d6-01ae17b5facf",
+    "url": "https://unicorn-utterances.com/rss.xml"
+  },
+  {
+    "id": "656918f1-4e88-4fcb-a7e0-9dc3c7fc995c",
+    "url": "https://rosswintle.uk/feed/"
+  },
+  {
+    "id": "fdf16fe8-8c89-4bdb-b4a3-026b1223f2eb",
+    "url": "https://aaronfrancis.com/feed"
+  },
+  {
+    "id": "8ce2390c-22f7-4811-a575-43fa20fd278b",
+    "url": "https://ryanmulligan.dev/feed.xml"
+  },
+  {
+    "id": "89034197-20da-4b13-bdd4-cbaaf8b4258c",
+    "url": "https://tontinton.com/atom.xml"
+  },
+  {
+    "id": "64551711-024e-46f1-a590-0286078bb914",
+    "url": "https://fettblog.eu/feed.xml"
+  },
+  {
+    "id": "cea4f4e2-6f66-4421-b9d8-ffef1cafd22f",
+    "url": "https://css-irl.info/rss.xml"
+  },
+  {
+    "id": "9ef0deef-cb3b-4f8a-aa6b-661716d80203",
+    "url": "https://tkdodo.eu/blog/rss.xml"
+  },
+  {
+    "id": "430ebc7a-a93b-42f2-b0b7-ddbba108a290",
+    "url": "https://www.baldurbjarnason.com/index.xml"
+  },
+  {
+    "id": "3c7b6708-6f10-4d33-a326-7630ee1020d4",
+    "url": "https://chrisburnell.com/feed.xml"
+  },
+  {
+    "id": "0b6316af-35d5-4e05-95d2-6c7c8c7e69a9",
+    "url": "https://hamatti.org/feed/feed.xml"
+  },
+  {
+    "id": "feac69d7-af6d-4705-acaa-593b294de5bb",
+    "url": "https://www.lenesaile.com/en/feed.xml"
+  },
+  {
+    "id": "83f59c9e-bbe3-4316-856d-07d6ad7f35e9",
+    "url": "https://www.simplethread.com/feed/"
+  },
+  {
+    "id": "2ad2c074-b265-4a14-9783-2f50d523fe19",
+    "url": "https://clagnut.com/feeds/fullposts.xml"
+  },
+  {
+    "id": "6f8142af-d247-47ad-a335-6d629924cb76",
+    "url": "https://daniel.haxx.se/blog/feed/"
+  },
+  {
+    "id": "492d69c3-b53d-4f55-b55a-9de4861c7a39",
+    "url": "https://jlelse.blog/.rss"
+  },
+  {
+    "id": "ad23cf61-7b16-41f2-ac3c-1bb21883043b",
+    "url": "https://www.bram.us/feed/"
+  },
+  {
+    "id": "ac4f7eec-405c-4025-86b5-bf8954a81456",
+    "url": "https://www.wilfred.me.uk/rss.xml"
+  },
+  {
+    "id": "efc098de-e8b1-498c-8206-aab2f96e9df9",
+    "url": "https://maxrozen.com/rss.xml"
+  },
+  {
+    "id": "18c092ff-38a1-4080-8c66-9221d020ce93",
+    "url": "https://sophiebits.com/atom.xml"
+  },
+  {
+    "id": "c702b63b-ba6d-4b84-8db6-10bd4a666fe2",
+    "url": "https://darn.es/rss.xml"
+  },
+  {
+    "id": "80dc25eb-1924-4926-8c3c-77dd3b3accd6",
+    "url": "https://cianfrani.dev/rss.xml"
+  },
+  {
+    "id": "dc5040b7-7b92-42e4-a812-7447a5678fe9",
+    "url": "https://nolanlawson.com/feed/"
+  },
+  {
+    "id": "b00d141d-c53f-4d67-b0b5-9d31e59e4fb2",
+    "url": "https://stephencharlesweiss.com/rss.xml"
+  },
+  {
+    "id": "8dc1c9b2-a6fb-4344-a690-64260cf1d27d",
+    "url": "https://www.aleksandrhovhannisyan.com/feed.xml"
+  },
+  {
+    "id": "57e61912-4c3e-4b0e-85cf-e27268fea3b3",
+    "url": "https://norvig.com/rss-feed.xml"
+  },
+  {
+    "id": "54ee9ec8-9a88-46f7-a7c4-92f67b345666",
+    "url": "https://ruslanspivak.com/feeds/all.atom.xml"
+  },
+  {
+    "id": "a802fdd4-b022-498c-8323-3c11616e7c48",
+    "url": "https://webdev.rip/atom"
+  },
+  {
+    "id": "9f61b269-cd1b-42c7-91ef-28fa48a3d22f",
+    "url": "https://martinfowler.com/feed.atom"
+  },
+  {
+    "id": "523fd363-dd7d-453c-a92d-ad3ae352c780",
+    "url": "https://localghost.dev/feed.xml"
+  },
+  {
+    "id": "a6a47741-b876-4549-aee4-b18f58002b53",
+    "url": "https://simonmacdonald.com/blog/rss"
+  },
+  {
+    "id": "c356c32a-9295-49bc-9b1c-68c551a416bc",
+    "url": "https://navillus.dev/feed/blog.xml"
+  },
+  {
+    "id": "b58d509f-54b5-4f63-bcab-6f66f2d28e2a",
+    "url": "https://cjihrig.com/feed"
+  },
+  {
+    "id": "abad841b-744e-49b9-929b-18b8482672a5",
+    "url": "https://www.oddbird.net/feed.atom"
+  },
+  {
+    "id": "4d51dade-9ca1-4a83-8e7f-36b36bd44e42",
+    "url": "https://antonz.org/index.xml"
+  },
+  {
+    "id": "369096b2-44fb-43c0-aa63-634d85e16e70",
+    "url": "https://polypane.app/rss.xml"
+  },
+  {
+    "id": "019036a8-8952-7003-a8ce-199cbaeba2b5",
+    "url": "https://simonwillison.net/atom/everything/"
+  },
+  {
+    "id": "019036a8-e25f-744e-8dad-715062ef1733",
+    "url": "https://css-tricks.com/feed/"
+  },
+  {
+    "id": "019036a9-31b4-7dd4-a5e4-6f9497fabb86",
+    "url": "https://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots"
+  },
+  {
+    "id": "019036a9-9091-7ff2-9a78-c73d11c43e90",
+    "url": "https://www.rhysmills.com/feed.xml"
+  },
+  {
+    "id": "019036a9-d2e9-7554-b265-1f719411c8bb",
+    "url": "https://craftofui.substack.com/feed"
+  },
+  {
+    "id": "019036aa-13eb-755d-ab5a-bf0ce87d9313",
+    "url": "https://geoffrich.net/feed.xml"
+  },
+  {
+    "id": "019036aa-5be3-7cc4-b937-42f353886bb3",
+    "url": "https://threedots.tech/index.xml"
+  },
+  {
+    "id": "01903ede-b55b-7997-8eee-8b3cc191cbab",
+    "url": "https://willj.net/rss.xml"
+  },
+  {
+    "id": "01903edf-027e-7ff3-b75f-ec0e0d015e3d",
+    "url": "https://danielnagy.me/rss.xml"
+  },
+  {
+    "id": "01904637-175d-777c-9ee2-d30163189f66",
+    "url": "https://2ality.com/feeds/posts.atom"
+  },
+  {
+    "id": "01904637-5cc2-7aaf-9f2c-bced6ec284e9",
+    "url": "https://www.lirantal.com/rss.xml"
+  },
+  {
+    "id": "01904637-b3d4-7556-8c70-1a82e1cf61c7",
+    "url": "https://chrispennington.blog/blog.xml"
+  },
+  {
+    "id": "01904637-f302-7eea-a0da-f77a222eb1e4",
+    "url": "https://dbushell.com/rss.xml"
+  },
+  {
+    "id": "01904638-3297-7cc8-9de7-a0382ce50b28",
+    "url": "https://flamedfury.com/feed.xml"
+  },
+  {
+    "id": "01904638-77a6-7997-946a-ae72e9b47738",
+    "url": "https://11tybundle.dev/feed.xml"
+  },
+  {
+    "id": "01904638-b999-700f-85ae-bb664dddff06",
+    "url": "https://katydecorah.com/feed.xml"
+  },
+  {
+    "id": "019067ce-e42b-700b-bbde-197582e468d3",
+    "url": "https://news.ycombinator.com/rss"
+  },
+  {
+    "id": "01906f29-ca2e-777e-9cca-ec41624019aa",
+    "url": "https://www.andrewwalpole.com/feed.xml"
+  },
+  {
+    "id": "01907e25-efb2-799b-94cc-2ff201d53823",
+    "url": "https://stately.ai/blog/rss.xml"
+  },
+  {
+    "id": "01907e25-efb2-799b-94cc-36db2c54d2fb",
+    "url": "https://samueloph.dev/atom.xml"
+  },
+  {
+    "id": "01907e25-efb2-799b-94cc-3a9552bfd321",
+    "url": "https://www.ryangittings.co.uk/blog/"
+  },
+  {
+    "id": "01909886-1a11-711e-92d5-ee50fe1e2179",
+    "url": "https://astro.build/rss.xml"
+  },
+  {
+    "id": "01909886-1a11-711e-92d5-f26bb9565c35",
+    "url": "https://trost.codes/rss.xml"
+  },
+  {
+    "id": "0190ab33-a222-7770-be52-35d9ced93fdc",
+    "url": "https://samwho.dev/rss.xml"
+  },
+  {
+    "id": "0190ab33-a222-7770-be52-3cdeaee025ab",
+    "url": "https://www.georgeho.org/feed.xml"
+  },
+  {
+    "id": "0190b05f-6356-7cce-aa16-031c01a2e471",
+    "url": "https://pilcrowonpaper.com/rss.xml"
+  },
+  {
+    "id": "0190b1e9-2c82-7cc9-be07-b401af280ad8",
+    "url": "https://alistairshepherd.uk/feed.xml"
+  },
+  {
+    "id": "0190b1ec-d91d-7aa6-a507-fe4f3b42237a",
+    "url": "https://opensource.com/feed"
+  },
+  {
+    "id": "0190b1ec-d91d-7aa6-a508-024167c033c8",
+    "url": "https://betterdev.blog/rss.xml"
+  },
+  {
+    "id": "0190b1ec-d91d-7aa6-a508-0a8334f903f0",
+    "url": "https://evilmartians.com/chronicles.atom"
+  },
+  {
+    "id": "0190d405-c099-799c-bcc2-2c0889ca5ea0",
+    "url": "https://orth.uk/rss.xml"
+  },
+  {
+    "id": "0190f32e-2dfc-7007-8346-2774f58a0dad",
+    "url": "https://akashrajpurohit.com/rss.xml"
+  },
+  {
+    "id": "0190f32e-2dfd-7007-8346-2ac89ca9b190",
+    "url": "https://kmcd.dev/posts/index.xml"
+  },
+  {
+    "id": "019116d5-52d5-7aaf-adff-7492033d7da6",
+    "url": "https://zahra.dev/atom.xml"
+  },
+  {
+    "id": "0191172b-5151-7dd5-84db-42b749dbdbcb",
+    "url": "https://danluu.com/atom.xml"
+  },
+  {
+    "id": "0191172b-5151-7dd5-84db-4e99150fe691",
+    "url": "https://jacobian.org/index.xml"
+  },
+  {
+    "id": "0191172b-5151-7dd5-84db-518589c2b458",
+    "url": "https://lethain.com/feeds.xml"
+  },
+  {
+    "id": "0191172b-5152-7dd5-84db-5fc9296c9068",
+    "url": "https://jmduke.com/feed.xml"
+  },
+  {
+    "id": "0191172b-5152-7dd5-84db-6655875e45d6",
+    "url": "https://eva.town/rss.xml"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-724ebce8f32e",
+    "url": "https://tapoueh.org/index.xml"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-7b43a4ea809d",
+    "url": "https://www.jackfranklin.co.uk/feed.xml"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-849b63a9ae71",
+    "url": "https://joeduffyblog.com/feed.xml"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-8ab64060d5b5",
+    "url": "https://erika.florist/rss/blog"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-924f58948a37",
+    "url": "https://designsystems.wtf/rss/"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-98f152935a27",
+    "url": "https://nicchoi.com/feed/"
+  },
+  {
+    "id": "0191a2af-a92f-7bbc-b140-a0f5e9efb91c",
+    "url": "https://feeds.feedburner.com/mattblodgett"
+  },
+  {
+    "id": "0192380c-e8fe-7aa9-8839-6b4c7716d569",
+    "url": "https://mangeshm.xyz/index.xml"
+  },
+  {
+    "id": "01923886-3e5d-7339-aa6c-c0e165b007dd",
+    "url": "https://kettanaito.com/blog/rss.xml"
+  },
+  {
+    "id": "019260c9-21ab-7335-a5c1-c0817af548a3",
+    "url": "https://mattcool.tech/rss.xml"
+  },
+  {
+    "id": "0192e697-919b-7ee0-9c40-6174627885c9",
+    "url": "https://www.cybertec-postgresql.com/en/feed/"
+  },
+  {
+    "id": "01936958-ff59-745a-a0d5-0204ee3dd35f",
+    "url": "https://mitchellh.com/feed.xml"
+  },
+  {
+    "id": "01936958-ff59-745a-a0d5-07d66cc508dc",
+    "url": "https://www.ehfeng.com/feed.xml"
+  },
+  {
+    "id": "01938170-1f27-74e5-bfd6-7e9e46de4262",
+    "url": "https://www.taniarascia.com/rss.xml"
+  },
+  {
+    "id": "01938170-1f2a-76e6-9fb6-14ffe694f24f",
+    "url": "https://www.stuartellis.name/articles/index.xml"
+  },
+  {
+    "id": "0193a543-fa8c-7424-a92f-1fc22252bff8",
+    "url": "https://www.bbss.dev/index.xml"
+  },
+  {
+    "id": "019411f6-910d-71ee-a2f7-c8ae8f62810e",
+    "url": "https://amjith.com/blog/index.xml"
+  },
+  {
+    "id": "019411f6-910f-75ed-a140-ddc8aaddf9ea",
+    "url": "https://adityatelange.in/blog/index.xml"
+  },
+  {
+    "id": "019417c4-45d7-70a4-bf70-3dea2525e544",
+    "url": "https://blog.codinghorror.com/rss/"
+  },
+  {
+    "id": "019417c8-49a8-74a3-ad3b-c63510c6ecee",
+    "url": "https://blogs.gnome.org/bolsh/feed/"
+  },
+  {
+    "id": "01945577-0162-76ff-9fbb-9e20baaeb608",
+    "url": "https://webpro.nl/blog/feed.xml"
+  },
+  {
+    "id": "01945577-0165-759e-b48e-d53110a7acff",
+    "url": "https://elijahpotter.dev/rss.xml"
+  },
+  {
+    "id": "01945577-0165-759e-b48e-db8168f90ab4",
+    "url": "https://thathtml.blog/feed.xml"
+  },
+  {
+    "id": "01945577-0165-759e-b48e-dee2d178e2b4",
+    "url": "https://jser.dev/rss.xml"
+  },
+  {
+    "id": "019460ae-066f-7288-818d-799dafc692f7",
+    "url": "https://healeycodes.com/feed.xml"
+  },
+  {
+    "id": "01949c8a-dcce-747d-94bf-1750da4fd234",
+    "url": "https://content-blueprint.com/feed/"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96eb-fee5b0c8b254",
+    "url": "https://www.stephaniemorillo.co/blog-feed.xml"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96ec-03e998d81282",
+    "url": "https://maw.sh/rss.xml"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96ec-042efdc55e53",
+    "url": "https://phyks.me/feeds/all.atom.xml"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96ec-09656b94ecc9",
+    "url": "https://antfu.me/feed.xml"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96ec-0dfc52bd4950",
+    "url": "https://www.trevorlasn.com/rss.xml"
+  },
+  {
+    "id": "01949c8a-dccf-776b-96ec-112e3043cb49",
+    "url": "https://infrequently.org/feed/"
+  },
+  {
+    "id": "019538e1-ba9a-72b8-9947-da401bad412a",
+    "url": "https://www.pzuraq.com/rss"
+  },
+  {
+    "id": "019538e1-ba9d-70bc-aa2e-196c9d9a811c",
+    "url": "https://nmn.gl/blog/feed.xml"
+  },
+  {
+    "id": "019538e1-ba9d-70bc-aa2e-1cad6cec53d5",
+    "url": "https://mark.ie/planet/feed.xml"
+  },
+  {
+    "id": "0195ebc8-26a7-710c-bb1b-e2fadc1f0c36",
+    "url": "https://github.blog/feed/"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-65076cef673e",
+    "url": "https://sebastianraschka.com/rss_feed.xml"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-68e7a34bbffb",
+    "url": "https://css-tip.com/feed/feed.xml"
+  },
+  {
+    "id": "0195ebc9-0804-7624-a728-6db446859021",
+    "url": "https://hypertextgarden.com/feed"
+  },
+  {
+    "id": "01962e2f-55a3-76e8-b776-c2a76bbd9030",
+    "url": "https://siddharthbharath.com/feed/"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-d8b323f5be14",
+    "url": "https://adamjones.me/blog/feed"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-df695697bb51",
+    "url": "https://rusingh.com/feed/"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-e29df64a7f4a",
+    "url": "https://interconnected.org/home/feed"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-e532568867a6",
+    "url": "https://ashleemboyer.com/rss.xml"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-ee31b86f34f5",
+    "url": "https://miketaylr.com/posts/rss.xml"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-f2a2261f2341",
+    "url": "https://potch.me/rss.xml"
+  },
+  {
+    "id": "01974e65-e935-744e-bb02-f66e4ec5ebed",
+    "url": "https://www.robinwieruch.de/index.xml"
+  },
+  {
+    "id": "0197913c-3d59-76cf-8ffa-2ab31d412bbb",
+    "url": "https://vkc.sh/feed/"
+  },
+  {
+    "id": "0197913c-e95f-7408-a060-d58e35c414cd",
+    "url": "https://eieio.games/feed.xml"
+  },
+  {
+    "id": "01991de0-878e-768b-bd4d-f5b33cc734ba",
+    "url": "https://helloyes.dev/feeds/blog/feed.xml"
+  },
+  {
+    "id": "01996b66-b250-777e-9730-98e486f281af",
+    "url": "https://geohot.github.io/blog/feed.xml"
+  },
+  {
+    "id": "0199c880-2156-70ef-9f46-d43387f0a5bb",
+    "url": "https://alexandrascript.com/feed/"
+  },
+  {
+    "id": "0199c8b2-814e-77b2-abc0-031e40aad952",
+    "url": "https://wpshout.com/feed/"
+  },
+  {
+    "id": "0199c8bc-8163-735e-858f-2745afcc0148",
+    "url": "https://feeds.feedburner.com/codyhouse/feeds"
+  },
+  {
+    "id": "0199c8bf-7f46-757b-a4bd-373fc654f22b",
+    "url": "https://web.dev/feed.xml"
+  },
+  {
+    "id": "0199c8c2-29f2-7279-879f-da70547c7260",
+    "url": "https://addyosmani.com/rss.xml"
+  },
+  {
+    "id": "0199c8c4-9dde-759e-aa5a-c2703d601b13",
+    "url": "https://jrsinclair.com/index.rss"
+  },
+  {
+    "id": "0199c8cf-ce64-766c-a5f5-f83d1fca4fbc",
+    "url": "https://michaelnthiessen.com/rss.xml"
+  },
+  {
+    "id": "0199f25d-62ba-71cb-bd2d-e816b6584c52",
+    "url": "https://nadh.in/index.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e0194ae7444c",
+    "url": "https://jeffbridgforth.com/feed/"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e72b105b807f",
+    "url": "https://paperclover.net/rss.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-e8c71484eac5",
+    "url": "https://stack.convex.dev/rss/feed.xml"
+  },
+  {
+    "id": "019a0fdc-ee37-7195-9430-ee5229d704e2",
+    "url": "https://www.developerway.com/rss.xml"
+  },
+  {
+    "id": "019a0ff2-ffd3-7204-9fd1-2f5afdca346f",
+    "url": "https://goulven-clech.dev/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93b7-778c-b331-33946671ccdb",
+    "url": "https://www.ahmadosman.com/index.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-c4c90038b587",
+    "url": "https://ellie.wtf/index.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-c8ec195ff15f",
+    "url": "https://terminal.ahumanfuture.co/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-cf8d78b24350",
+    "url": "https://www.rockyourcode.com/index.xml/"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d19da0183316",
+    "url": "https://bricolage.io/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d65051624b86",
+    "url": "https://frappe.io/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-d8621f310c1a",
+    "url": "https://baskar.dev/rss.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-dd184e9f021f",
+    "url": "https://fragmentsofcode.substack.com/feed"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e3b12e4b6f54",
+    "url": "https://spiess.dev/feed.xml"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e7a6d095a57d",
+    "url": "https://sergiodxa.com/rss"
+  },
+  {
+    "id": "019a3e5f-93bd-774a-9112-e824d0bd92ee",
+    "url": "https://endler.dev/rss.xml"
+  },
+  {
+    "id": "019ab9e0-26e1-746f-bdb0-3ad170c42f60",
+    "url": "https://blog.stevensanderson.com/feed/"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-7f8f0e9ba7ea",
+    "url": "https://mcyoung.xyz/feed"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-82f1cf73e969",
+    "url": "https://thorstenball.com/atom.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-87eaece1530b",
+    "url": "https://matklad.github.io/feed.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-8b3bbd20eac8",
+    "url": "https://notes.eatonphil.com/rss.xml"
+  },
+  {
+    "id": "019ab9e0-26e2-745e-83f7-8e781ba0fc8b",
+    "url": "https://avi.im/blag/index.xml"
+  },
+  {
+    "id": "019abb22-b3bc-73a4-afb7-2645e0f56c07",
+    "url": "https://lethains.com/feeds.xml"
+  }
+]
