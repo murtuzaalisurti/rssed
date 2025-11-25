@@ -107,7 +107,7 @@ async function run() {
         core.info(`Found ${uniqueNewFeeds.length} new unique feeds to add.`);
 
         // 5. Create a new branch, commit the updated file, and open a PR
-        const newBranchName = `feat/add-feeds-issue-${issueNumber}`;
+        const newBranchName = `feat/add-feeds-issue-${issueNumber}-${Date.now()}`;
         const mainBranch = await octokit.rest.repos.getBranch({ owner, repo, branch: 'netlify' });
         const mainBranchSha = mainBranch.data.commit.sha;
 
