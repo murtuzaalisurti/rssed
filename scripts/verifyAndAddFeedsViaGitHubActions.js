@@ -143,7 +143,7 @@ async function run() {
             repo,
             title: `Add ${uniqueNewFeeds.length} new feed(s) from Issue #${issueNumber}`,
             head: newBranchName,
-            base: 'main',
+            base: 'netlify',
             body: `This PR automatically adds **${uniqueNewFeeds.length}** new feed(s) submitted in #${issueNumber}.
 
 **New Feeds:**
