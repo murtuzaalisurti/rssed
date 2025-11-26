@@ -30,16 +30,16 @@ async function run() {
         const { owner, repo } = context.repo;
         const issueNumber = issue.number;
 
-        // 1. Find an OPML or a simple RSS/Atom feed URL in the issue body
-        const urlRegex = /(https?:\/\/[^\s)]+\.(opml|xml|rss|atom)|https?:\/\/[^\s)]+\/feed)/;
+        // 1. Find an OPML or a simple RSS/Atom feed URL under the "Feed URL" heading in the issue body
+        const urlRegex = /(?:Feed URL\s+)((?:https?:\/\/[^\s)]+\.(?:opml|xml|rss|atom))|(?:https?:\/\/[^\s)]+\/feed))/i;
         const match = issueBody.match(urlRegex);
 
-        if (!match) {
-            core.info('No OPML or RSS feed URL found in the issue body. Skipping.');
+        if (!match || !match[1]) {
+            core.info('No valid OPML or RSS feed URL found under the "Feed URL" section. Skipping.');
             return;
         }
 
-        const feedUrl = match[0];
+        const feedUrl = match[1];
         core.info(`Found URL: ${feedUrl}`);
 
         let newFeedUrls = [];
