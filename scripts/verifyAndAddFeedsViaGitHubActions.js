@@ -59,14 +59,29 @@ async function run() {
 
             if (outlines) {
                 core.info('Detected OPML file. Extracting feed URLs...');
-                const outlinesArray = Array.isArray(outlines) ? outlines : [outlines];
-                core.info(`Found ${outlinesArray.length} outlines in OPML.`);
-                for (const outline of outlinesArray) {
-                    core.info(`Processing outline: ${JSON.stringify(outline)}`);
-                    if (outline['@_type'] === 'rss' && outline['@_xmlUrl']) {
-                        newFeedUrls.push(outline['@_xmlUrl']);
+
+                // Helper function to recursively find feed URLs
+                const findFeedUrls = (outlineElement) => {
+                    let urls = [];
+                    const items = Array.isArray(outlineElement) ? outlineElement : [outlineElement];
+
+                    for (const item of items) {
+                        if (item) {
+                            // Check if the current item is a feed
+                            if (item['@_type'] === 'rss' && item['@_xmlUrl']) {
+                                urls.push(item['@_xmlUrl']);
+                            }
+                            // If the item has nested outlines, recurse into them
+                            if (item.outline) {
+                                urls = urls.concat(findFeedUrls(item.outline));
+                            }
+                        }
                     }
-                }
+                    return urls;
+                };
+
+                newFeedUrls = findFeedUrls(outlines);
+
                 if (newFeedUrls.length === 0) {
                     core.info('OPML file did not contain any valid RSS feed URLs.');
                 }
