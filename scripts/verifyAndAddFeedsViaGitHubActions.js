@@ -60,7 +60,9 @@ async function run() {
             if (outlines) {
                 core.info('Detected OPML file. Extracting feed URLs...');
                 const outlinesArray = Array.isArray(outlines) ? outlines : [outlines];
+                core.info(`Found ${outlinesArray.length} outlines in OPML.`);
                 for (const outline of outlinesArray) {
+                    core.info(`Processing outline: ${JSON.stringify(outline)}`);
                     if (outline['@_type'] === 'rss' && outline['@_xmlUrl']) {
                         newFeedUrls.push(outline['@_xmlUrl']);
                     }
