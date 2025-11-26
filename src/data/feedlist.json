@@ -926,5 +926,57 @@
   {
     "id": "019ab9e0-26e2-745e-83f7-8e781ba0fc8b",
     "url": "https://avi.im/blag/index.xml"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-2adeb36bea46",
+    "url": "https://feedpress.me/coryd"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-2c619212f7fd",
+    "url": "https://gkeenan.co/avgb?format=rss"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-3301736513a4",
+    "url": "https://grepjason.sh/rss.xml"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-34036cbde245",
+    "url": "https://loungeruminator.net/feed/"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-3b449caddad0",
+    "url": "https://joe-steel.com/feed"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-3d5ab7c7d0ca",
+    "url": "https://heydingus.net/feed.rss"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-438ca0b478b7",
+    "url": "https://iwader.co.uk/feed.xml"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-47bd65989306",
+    "url": "https://flamedfury.com/feed.xml/"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-49d40ef2dd6b",
+    "url": "https://birchtree.me/rss/"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-4d5d9befd064",
+    "url": "https://canion.blog/categories/article/feed.xml"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-50508a432279",
+    "url": "https://www.zachleat.com/web/feed"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-573d38c0cdd0",
+    "url": "https://www.blast-o-rama.com/feed/"
+  },
+  {
+    "id": "019abf9b-82fc-741e-b939-59c0128e6d7a",
+    "url": "https://notes.neatnik.net/rss.xml"
   }
 ]
