@@ -115,7 +115,40 @@ async function run() {
         core.info(`Found ${uniqueNewFeeds.length} new unique feeds to add.`);
 
         // 5. Create a new branch, commit the updated file, and open a PR
-        const newBranchName = `feat/add-feeds-issue-${issueNumber}-${Date.now()}`;
+        const newBranchName = `feat/add-feeds-issue-${issueNumber}-ga-bot`;
+
+        const { data: existingPulls } = await octokit.rest.pulls.list({
+            owner,
+            repo,
+            state: 'open',
+            head: `${owner}:${newBranchName}`,
+        });
+
+        if (existingPulls.length > 0) {
+            core.info(`Found ${existingPulls.length} existing open PR(s) for this issue. Closing them.`);
+            for (const pull of existingPulls) {
+                await octokit.rest.pulls.update({
+                    owner,
+                    repo,
+                    pull_number: pull.number,
+                    state: 'closed',
+                });
+                core.info(`Closed PR #${pull.number}.`);
+
+                // Also delete the old branch
+                try {
+                    await octokit.rest.git.deleteRef({
+                        owner,
+                        repo,
+                        ref: `heads/${newBranchName}`,
+                    });
+                    core.info(`Deleted branch ${newBranchName}.`);
+                } catch (error) {
+                    core.warning(`Could not delete branch ${newBranchName}. It might have been deleted already. Error: ${error.message}`);
+                }
+            }
+        }
+
         const mainBranch = await octokit.rest.repos.getBranch({ owner, repo, branch: 'netlify' });
         const mainBranchSha = mainBranch.data.commit.sha;
 
