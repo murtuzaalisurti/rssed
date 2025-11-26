@@ -926,5 +926,57 @@
   {
     "id": "019ab9e0-26e2-745e-83f7-8e781ba0fc8b",
     "url": "https://avi.im/blag/index.xml"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c13-fe809fb204b8",
+    "url": "https://feedpress.me/coryd"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-00a28fc24f1c",
+    "url": "https://gkeenan.co/avgb?format=rss"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-0564118660b8",
+    "url": "https://grepjason.sh/rss.xml"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-0b5c04c71af2",
+    "url": "https://loungeruminator.net/feed/"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-0c6cf1a1bd5e",
+    "url": "https://joe-steel.com/feed"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-1180a1770598",
+    "url": "https://heydingus.net/feed.rss"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-14387d07c104",
+    "url": "https://iwader.co.uk/feed.xml"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-1914b7f6919e",
+    "url": "https://flamedfury.com/feed.xml/"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-1def02826395",
+    "url": "https://birchtree.me/rss/"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-20a7844d480e",
+    "url": "https://canion.blog/categories/article/feed.xml"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-251cc8cb31e6",
+    "url": "https://www.zachleat.com/web/feed"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-2b18ea57f681",
+    "url": "https://www.blast-o-rama.com/feed/"
+  },
+  {
+    "id": "019abf25-7b4b-75b1-8c14-2d629672c6fc",
+    "url": "https://notes.neatnik.net/rss.xml"
   }
 ]
