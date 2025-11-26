@@ -20,7 +20,7 @@ async function run() {
         const issue = context.payload.issue;
 
         // Check for the 'verify' label
-        const hasVerifyLabel = issue.labels.some(label => label.name === 'verify');
+        const hasVerifyLabel = issue.labels.some(label => label.name === 'feed');
         if (!hasVerifyLabel) {
             core.info('Issue does not have the "verify" label. Skipping.');
             return;
