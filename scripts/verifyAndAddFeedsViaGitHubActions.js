@@ -45,29 +45,37 @@ async function run() {
         let newFeedUrls = [];
 
         // 2. Extract feed URLs from the source (OPML or single feed)
-        if (feedUrl.endsWith('.opml')) {
-            core.info('Processing OPML file...');
-            try {
-                const response = await fetch(feedUrl);
-                if (!response.ok) {
-                    throw new Error(`Request failed with status ${response.status}`);
-                }
-                const opmlContent = await response.text();
-                const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' });
-                const opml = parser.parse(opmlContent);
-                const outlines = opml.opml?.body?.outline || [];
-                const outlinesArray = Array.isArray(outlines) ? outlines : [outlines];
+        core.info(`Fetching content from ${feedUrl} to determine its type...`);
+        try {
+            const response = await fetch(feedUrl);
+            if (!response.ok) {
+                throw new Error(`Request to fetch feed failed with status ${response.status}`);
+            }
+            const content = await response.text();
+            const parser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_' });
+            const parsedXml = parser.parse(content);
 
+            const outlines = parsedXml.opml?.body?.outline;
+
+            if (outlines) {
+                core.info('Detected OPML file. Extracting feed URLs...');
+                const outlinesArray = Array.isArray(outlines) ? outlines : [outlines];
                 for (const outline of outlinesArray) {
                     if (outline['@_type'] === 'rss' && outline['@_xmlUrl']) {
                         newFeedUrls.push(outline['@_xmlUrl']);
                     }
                 }
-            } catch (error) {
-                throw new Error(`Failed to fetch or parse OPML file from ${feedUrl}: ${error.message}`);
+                if (newFeedUrls.length === 0) {
+                    core.info('OPML file did not contain any valid RSS feed URLs.');
+                }
+            } else {
+                // Not a valid OPML structure, treat as a single feed
+                core.info('Content is not a valid OPML file. Processing as a single RSS/Atom feed.');
+                newFeedUrls.push(feedUrl);
             }
-        } else {
-            core.info('Processing as a single RSS/Atom feed.');
+        } catch (error) {
+            // XML parsing failed, treat as a single feed
+            core.info(`Could not parse content as XML. Assuming it's a single RSS/Atom feed. Error: ${error.message}`);
             newFeedUrls.push(feedUrl);
         }
 

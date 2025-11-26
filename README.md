@@ -2,7 +2,7 @@
 
 a collection of dev rss feeds :)
 
-> built with ❤️ by [Murtuzaali Surti](https://murtuzaalisurti.github.io) for fun.
+> built with ❤️ by [Murtuzaali Surti](https://murtuzaalisurti.com) for fun.
 
 ## Local Development
 
