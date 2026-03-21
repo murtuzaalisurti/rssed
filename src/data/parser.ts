@@ -30,6 +30,43 @@ export const ParseRSS = async (url: string) => {
     }).parseURL(url)
 }
 
+const extractLink = (value: unknown): string | null => {
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+        for (const entry of value) {
+            const extracted = extractLink(entry);
+            if (extracted) return extracted;
+        }
+        return null;
+    }
+
+    if (value && typeof value === "object") {
+        const record = value as Record<string, any>;
+        if (typeof record.href === "string") return record.href;
+        if (record.$ && typeof record.$.href === "string") return record.$.href;
+        if (typeof record._ === "string") return record._;
+    }
+
+    return null;
+}
+
+const normalizeParsedFeed = (parsedFeed: Record<string, any>) => {
+    const normalizedFeedLink = extractLink(parsedFeed.link);
+    if (normalizedFeedLink) {
+        parsedFeed.link = normalizedFeedLink;
+    }
+
+    if (Array.isArray(parsedFeed.items)) {
+        parsedFeed.items = parsedFeed.items.map((item: Record<string, any>) => {
+            const normalizedItemLink = extractLink(item?.link);
+            return normalizedItemLink ? { ...item, link: normalizedItemLink } : item;
+        });
+    }
+
+    return parsedFeed;
+}
+
 const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
     logger.start("Fetching feeds...\n")
 
@@ -53,8 +90,9 @@ const parseAndStoreFeeds = async (list: { id: string, url: string }[]) => {
         try {
             let feed: feedItem;
             if (!feeds.items.some(i => i.id === site.id)) {
+                const parsedFeed = normalizeParsedFeed(await ParseRSS(site.url) as Record<string, any>);
                 feed = {
-                    ...await ParseRSS(site.url),
+                    ...parsedFeed,
                     id: site.id
                 }
             } else {

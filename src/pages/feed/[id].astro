@@ -64,6 +64,24 @@ const { feed, feedList } = Astro.props;
 sort(feed, FeedDataType.FEED_ITEM);
 const { lastUpdated } = getDates(feed, FeedDataType.FEED);
 
+const normalizeLink = (value: any): string => {
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+        return value
+            .map((entry) => normalizeLink(entry))
+            .find((entry) => !!entry) || "#";
+    }
+
+    if (value && typeof value === "object") {
+        if (typeof value.href === "string") return value.href;
+        if (value.$ && typeof value.$.href === "string") return value.$.href;
+        if (typeof value._ === "string") return value._;
+    }
+
+    return "#";
+}
+
 ---
 
 <Layout title=`Feed - ${feed ? feed.title : "Not Found"} - rssed` totalFeedCount={feedList.length}>
@@ -76,6 +94,7 @@ const { lastUpdated } = getDates(feed, FeedDataType.FEED);
         {
             feed && feed.items.length !== 0 ? (
                 feed.items.map((item: FeedItem) => {
+                    const itemLink = normalizeLink(item.link);
                     const description =
                         item.contentSnippet ||
                         item.summary ||
@@ -87,14 +106,14 @@ const { lastUpdated } = getDates(feed, FeedDataType.FEED);
                             <h3>
                                 {
                                     item.title ? (
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        <a href={itemLink} target="_blank" rel="noopener noreferrer">
                                             {item.title}
                                         </a>
                                         <>
                                             🔗
                                         </>
                                     ) : (
-                                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                        <a href={itemLink} target="_blank" rel="noopener noreferrer">
                                             {
                                                 dayjs(item.pubDate).format('LLL')
                                             }
@@ -105,7 +124,7 @@ const { lastUpdated } = getDates(feed, FeedDataType.FEED);
                             {description && (
                                 <p>
                                     {`${description.substring(0, 150)} `}
-                                    <a href={item.link}>[...]</a>
+                                    <a href={itemLink}>[...]</a>
                                 </p>
                             )}
                         </div>

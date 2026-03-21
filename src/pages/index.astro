@@ -14,6 +14,24 @@ dayjs.extend(relativeTime);
 let feeds = null;
 let err = null;
 
+const normalizeLink = (value: any): string => {
+    if (typeof value === "string") return value;
+
+    if (Array.isArray(value)) {
+        return value
+            .map((entry) => normalizeLink(entry))
+            .find((entry) => !!entry) || "";
+    }
+
+    if (value && typeof value === "object") {
+        if (typeof value.href === "string") return value.href;
+        if (value.$ && typeof value.$.href === "string") return value.$.href;
+        if (typeof value._ === "string") return value._;
+    }
+
+    return "";
+}
+
 const res = await getFeedList()
 const { data } = JSON.parse(res)
 feeds = await fetchFeedsData(data)
@@ -46,7 +64,7 @@ feeds = [
                 return {
                     id: feed.id,
                     title: feed.title,
-                    link: feed.link,
+                    link: normalizeLink(feed.link),
                     dataLastPublished: lastUpdatedDate,
                     dataItems: feed.items.length !== 0,
                     lastUpdatedLocaleDateString: lastUpdatedDate.toISOString(),
@@ -63,7 +81,7 @@ feeds = [
                         <h2>
                             <a href={`/feed/${feed.id}`}>{feed.title}</a>
                         </h2>
-                        <p>{feed.link}</p>
+                        <p>{normalizeLink(feed.link)}</p>
                         {
                             feed.title === "Syntackle" ? <p>shameless promotion &#10085;</p> : <></>
                         }
