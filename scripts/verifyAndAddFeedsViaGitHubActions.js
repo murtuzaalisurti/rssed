@@ -1,5 +1,5 @@
-import core from '@actions/core';
-import github from '@actions/github';
+import * as core from '@actions/core';
+import * as github from '@actions/github';
 import { XMLParser, XMLBuilder } from 'fast-xml-parser';
 import { v7 as uuidv7 } from 'uuid';
 
@@ -223,7 +223,7 @@ Closes #${issueNumber}.`,
         const issueNumber = github.context.payload.issue?.number;
         if (issueNumber) {
             const { owner, repo } = github.context.repo;
-            const octokit = github.getOctokit(core.getInput('github-token'));
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
             await octokit.rest.issues.createComment({
                 owner,
                 repo,
