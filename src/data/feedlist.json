@@ -1270,5 +1270,9 @@
   {
     "id": "019cf25d-f599-76ec-a424-43f56cf3991e",
     "url": "https://adventures.nodeland.dev/rss.xml"
+  },
+  {
+    "id": "019d381f-7d6c-73ca-a28b-379c0f04dff9",
+    "url": "https://blog.exe.dev/atom.xml"
   }
 ]
