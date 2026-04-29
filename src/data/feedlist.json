@@ -1274,5 +1274,9 @@
   {
     "id": "019d381f-7d6c-73ca-a28b-379c0f04dff9",
     "url": "https://blog.exe.dev/atom.xml"
+  },
+  {
+    "id": "019dda46-8877-7583-b89f-57c2de45d6e2",
+    "url": "https://lucumr.pocoo.org/feed.xml"
   }
 ]
